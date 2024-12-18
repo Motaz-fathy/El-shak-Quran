@@ -1,12 +1,12 @@
 import { useState } from "react";
 import EgazatSection from "../../Components/Egazat/EgazatSection";
 import Books from "../../Components/books/Books";
-import Read from "../../Components/Read/read";
 import Visible from "../../Components/Visible/Visible";
-import Voice from "../../Components/Itsvoice/voice";
 import img from '../../assets/images/general/hh.png'
 import img2 from '../../assets/images/general/design1.png'
 import './library.css'
+import ReadPage from "../../Components/Read/ReadPage";
+import VoicePage from "../../Components/Itsvoice/VoicePage";
 
 export const ItsLibrary = () => {
     const [activeTab, setActiveTab] = useState("books");
@@ -14,11 +14,11 @@ export const ItsLibrary = () => {
     const renderContent = () => {
         switch (activeTab) {
           case "voice":
-            return <Voice />;
+            return <VoicePage />;
           case "Visible":
             return <Visible />;
           case "read":
-            return <Read /> ;
+            return <ReadPage /> ;
           case "books":
             return <Books /> ;
           default:
