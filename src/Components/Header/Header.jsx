@@ -9,17 +9,17 @@ import eng from "../../assets/images/iconHeader/eng.png";
 import './header.css';
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars , faTimes  } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faL, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { faUser , faShoppingCart , faHeart  } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faShoppingCart, faHeart } from '@fortawesome/free-solid-svg-icons';
+import UserProfile from "../UserProfile/UserProfile";
 
 
 
 
 
 const Header = () => {
-
-
+    const [toggleProfile, setToggleProfile] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const linksRef = useRef(null); // Reference to the links container
 
@@ -27,9 +27,11 @@ const Header = () => {
         setIsMenuOpen(prevState => !prevState);
     };
 
-
+    const handelPop = () => {
+        setToggleProfile(prevState => !prevState)
+    }
     return (
-        <div className="headers">
+        <div className="headers relative">
             <div className="topHeader flex items-center gap-2 md:gap-5 justify-end mt-2 md:mt-4">
                 <div className="icons flex items-center gap-1 md:gap-3">
                     <img src={youtube} alt="youtube" />
@@ -50,7 +52,7 @@ const Header = () => {
                     <NavLink className={({ isActive }) => (isActive ? "link active" : "link")} to="/egazat">الإجازات</NavLink>
                     <NavLink className={({ isActive }) => `dropdown ${isActive ? "link active" : "link"}`} to="/coursesPage"
                     >
-                        الكورسات 
+                        الكورسات
                         <FontAwesomeIcon className="dropdownIcon" icon={faChevronDown} />
                         <div className="dropDwonList">
                             <h4 className="dropDwonQuran relative">دروس القرآن الكريم <FontAwesomeIcon className="dropDwonQuranIcon" icon={faChevronDown} />
@@ -74,7 +76,7 @@ const Header = () => {
                                     <li>كورس اللغة العربية لقراءة القرآن</li>
                                 </ul>
                             </h4>
-                            <h4 className="dropDwonLesson relative">دروس إسلامية <FontAwesomeIcon  className="dropDwonLessonIcon" icon={faChevronDown} />
+                            <h4 className="dropDwonLesson relative">دروس إسلامية <FontAwesomeIcon className="dropDwonLessonIcon" icon={faChevronDown} />
                                 <ul className="absolute top-0 right-[101%] w-[200px]">
                                     <li>كورس الحديث</li>
                                     <li>كورس الفقة</li>
@@ -95,34 +97,37 @@ const Header = () => {
                 </div>
                 <div className="left flex items-center gap-2 md:gap-5">
                     <Link to='/wishList'>
-                        <FontAwesomeIcon className="text-[#0F8A73] text-[20px]" icon={faHeart} />                    
+                        <FontAwesomeIcon className="text-[#0F8A73] text-[20px]" icon={faHeart} />
                     </Link>
                     <Link to="/shoppingCart">
-                        <FontAwesomeIcon className="text-[#0F8A73] text-[20px]" icon={faShoppingCart} />                    
+                        <FontAwesomeIcon className="text-[#0F8A73] text-[20px]" icon={faShoppingCart} />
                     </Link>
-                    <Link>
+                    <Link onClick={handelPop} className="relative">
                         <FontAwesomeIcon className="text-[#0F8A73] text-[20px]" icon={faUser} />
                     </Link>
                     <div className="flex items-center gap-2">
                         <img src={eng} alt="english" />
-                        <span  className="hidden md:block">Englash</span>
+                        <span className="hidden md:block">Englash</span>
                     </div>
                     {!isMenuOpen && (
-                            <FontAwesomeIcon
-                                className="showBar"
-                                icon={faBars}
-                                onClick={toggleMenu}
-                            />
-                        )}                    
+                        <FontAwesomeIcon
+                            className="showBar"
+                            icon={faBars}
+                            onClick={toggleMenu}
+                        />
+                    )}
                     {isMenuOpen && (
-                            <FontAwesomeIcon
-                                className="close"
-                                icon={faTimes}
-                                onClick={toggleMenu}
-                            />
-                        )}                
+                        <FontAwesomeIcon
+                            className="close"
+                            icon={faTimes}
+                            onClick={toggleMenu}
+                        />
+                    )}
+
                 </div>
             </div>
+
+            {toggleProfile && <UserProfile />}
         </div>
     );
 };
