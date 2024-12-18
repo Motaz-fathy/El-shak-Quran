@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 // import ReactHowler from "react-howler";
 
 
-const Voice = () => {
+const VoicePage = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [surahs, setSurahs] = useState([]);
@@ -162,7 +162,7 @@ const Voice = () => {
   );
 };
 
-export default Voice;
+export default VoicePage;
 
 
 
