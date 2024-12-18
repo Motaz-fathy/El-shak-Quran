@@ -1,12 +1,10 @@
 
-// import React from 'react'
 import pepole from '../../assets/images/general/people.png'
 import design1 from '../../assets/images/general/design1.png'
 import disLike from '../../assets/images/general/disLike.png'
-// import design3 from '../../assets/images/general/design3.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { Rating } from '@mui/material';
+// import { Rating } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useState , useEffect } from 'react';
 import axios from 'axios';
@@ -25,12 +23,12 @@ const AlShehk = () => {
     // navigate to Profile Teacher Page
     const navigate = useNavigate()
 
-//     // Fetch data from API
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://quran.codecraft1.com/api/infoelshikhs');
-                setTeachers(response.data);
+                const response = await axios.get('https://quran.codecraft1.com/api/teacher');
+                setTeachers(response.data.data.data);
+                console.log(response.data.data.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -38,7 +36,7 @@ const AlShehk = () => {
         fetchData();
     }, []);
 
-//     // Filter data based on search input
+    // Filter data based on search input
     const filteredData = teachers.filter((teacher) =>
         teacher.name.toLowerCase().includes(searchText.toLowerCase())
     );
@@ -128,15 +126,15 @@ const AlShehk = () => {
                             {/* Teacher Image */}
                             <img
                                 className="w-[120px] h-[120px] rounded-[50%] mx-5 object-cover border-4 border-[--main-dark-color]"
-                                src={`https://quran.codecraft1.com/public/${teacher.image}`}
+                                src={`https://quran.codecraft1.com/${teacher.image}`}
                                 alt={teacher.name}
                             />
                             {/* Teacher Info */}
                             <div className="info flex-1 flex flex-col items-center md:items-start gap-2">
                                 <h6 className="text-[26px] font-[500]">الشيخ / {teacher.name}</h6>
-                                <p className="text-[20px] text-[#62B6B7]">{teacher.experience_years}</p>
-                                <Rating name="read-only" value={teacher.rating} readOnly />
-                                <p className="my-4 text-[20px]">{teacher.specialization}</p>
+                                <p className="text-[20px] font-[500] text-[#62B6B7]">{`${teacher.experience} من الخبرة `}</p>
+                                {/* <Rating name="read-only" value={teacher.rating} readOnly /> */}
+                                <p className="my-4 text-[20px]">{teacher.title}</p>
                                 <p className="text-[18px] w-[90%] md:w-[50%] text-center md:text-start">
                                     {teacher.description}
                                 </p>
