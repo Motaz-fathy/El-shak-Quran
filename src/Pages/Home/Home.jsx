@@ -15,21 +15,18 @@ import './home.css'
 
 
 const Home = () => {
-
-
-
     return (
         <div className="home">
-            <HeroHome/> 
-            <Amr/>
-            <WhyUs/>
-            <StartLearn/>
-            <PlanBG/>
-            <Numbers/>
-            <CoursesSection/>
-            <Opinions/>
-            <EgazatSection/>
-            <BlogsSection/> 
+            <HeroHome />
+            <Amr />
+            <WhyUs />
+            <StartLearn />
+            <PlanBG />
+            <Numbers />
+            <CoursesSection />
+            <Opinions />
+            <EgazatSection />
+            <BlogsSection />
         </div>
     )
 }

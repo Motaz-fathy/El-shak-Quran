@@ -106,6 +106,8 @@ a{
   background-color: var(--main-border-color);
 }
 
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
