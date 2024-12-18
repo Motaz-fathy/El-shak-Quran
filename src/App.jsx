@@ -23,10 +23,8 @@ import Blogs from "./Pages/Blogs/Blogs";
 import AlShehk from "./Pages/AlShehk/AlShehk";
 import SubscriptionForm from "./Pages/SubscriptionForm";
 import CommonQuestions from "./Pages/ComonQuestions";
-import Read from "./Components/Read/Read";
 import Books from "./Components/books/Books";
 import Visible from "./Components/Visible/Visible";
-import Voice from "./Components/Itsvoice/Voice";
 import ProfileTecher from "./Pages/ProfileTecher/ProfileTecher";
 import Ratings from "./Pages/Ratings/Ratings";
 import CoursesPage from "./Pages/CoursesPage/CoursesPage";
@@ -41,6 +39,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import BlogsDetails from "./Pages/BlogsDetails/BlogsDetails";
+import Read from "./Components/Read/read";
+import Voice from "./Components/Itsvoice/voice";
 
 function App() {
   return (
