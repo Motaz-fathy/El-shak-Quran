@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-const Read = () => {
+const ReadPage = () => {
   return (
     <div>
       <div
@@ -29,4 +29,4 @@ const Read = () => {
   );
 };
 
-export default Read ;
+export default ReadPage ;
