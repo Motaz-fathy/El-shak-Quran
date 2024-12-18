@@ -1,7 +1,7 @@
 import { useState } from "react";
 import EgazatSection from "../../Components/Egazat/EgazatSection";
 import Books from "../../Components/books/Books";
-import Read from "../../Components/read/read";
+import Read from "../../Components/Read/read";
 import Visible from "../../Components/Visible/Visible";
 import Voice from "../../Components/Itsvoice/voice";
 import img from '../../assets/images/general/hh.png'

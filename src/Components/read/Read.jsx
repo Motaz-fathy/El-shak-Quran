@@ -1,11 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-
 const Read = () => {
-
-  
-
   return (
     <div>
       <div
@@ -17,7 +13,7 @@ const Read = () => {
           placeholder="اكتب اسم القراءة"
           className="p-2 rounded-md border-2 bg-[#EAF8F4] w-36 md:w-80 pr-10 focus:outline-none "
           style={{
-            borderColor: "var(--main-dark-color)", // تحديد لون الإطار باستخدام المتغير
+            borderColor: "var(--main-dark-color)" // تحديد لون الإطار باستخدام المتغير
           }}
         />
         <FontAwesomeIcon
@@ -28,11 +24,9 @@ const Read = () => {
 
       <div>
         <h1>القرآن الكريم</h1>
-       
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default Read
+export default Read ;
