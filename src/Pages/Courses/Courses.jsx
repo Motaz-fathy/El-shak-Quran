@@ -317,7 +317,9 @@ const Courses = () => {
             </div>
           </div>
         </div>
+
         {/* that have issue here when load fail image url  */}
+        
         <div className="image w-[50%] hidden lg:block">
           <img className="w-[100%] rounded-lg " src={course.image} />
         </div>
