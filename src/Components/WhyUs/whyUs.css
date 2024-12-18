@@ -1,0 +1,15 @@
+
+@media ( max-width : 767px ){
+    .whyUs .bigBox .box{
+        width: 50%;
+    }
+
+} 
+@media ( max-width : 480px ) {
+    .whyUs .bigBox{
+        justify-content: center;
+    }
+    .whyUs .bigBox .box{
+        width: 100%;
+    }
+}

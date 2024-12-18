@@ -1,0 +1,47 @@
+
+
+@media ( max-width : 767px ) {
+    .opinions {
+        margin-top: 40px;
+    }
+    .opinions .box{
+        padding: 10px;
+    }
+    .opinions .opinionsImg{
+        width: 100px;
+        height: 100px;
+    }
+    .opinions .box h6{
+        font-size:24px;
+    }
+    .opinions .box .comment{
+        font-size: 18px;
+    }
+    .opinions .rating {
+        gap: 10px;
+    }
+}
+
+@media ( max-width : 500px ) {
+    .opinions .box{
+        padding: 5px;
+    }
+    .opinions .opinionsImg{
+        width: 80px;
+        height: 80px;
+        margin-left: 10px;
+    }
+    .opinions .box h6{
+        font-size:24px;
+    }
+    .opinions .box .comment{
+        font-size: 14px;
+    }
+    .opinions .box .date{
+        gap: 10px;
+        font-size: 12px;
+    }
+    .opinions .title{
+        font-size: 26px;
+    }
+}

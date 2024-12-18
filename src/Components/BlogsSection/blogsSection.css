@@ -1,0 +1,14 @@
+
+
+
+@media (  max-width : 500px ) {
+    .blogsSection .bigBox{
+        flex-direction: column;
+    }
+    .blogsSection .bigBox .box{
+        width: 100%;
+    }
+    .blogsSection .bigBox .box:nth-child(1){
+        transform: translateY(0);
+    }
+}

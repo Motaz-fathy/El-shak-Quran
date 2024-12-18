@@ -1,0 +1,30 @@
+
+@media ( max-width : 850px ) {
+    .coursesPage .mainTitle{
+        font-size: 30px;
+    }
+    .coursesPage .image{
+        display: none;
+    }
+    .coursesPage .buttons{
+        width: 100% ;
+    }
+    .coursesPage .subTitle{
+        font-size: 28px;
+    }
+}
+
+@media ( max-width : 522px ) {
+    .quranCoursse {
+        padding: 10px; 
+        padding-top: 80px;
+    }
+    .coursesPage .buttons button {
+        font-size: 14px;
+        padding:  10px;
+        width: 174px;
+    }
+    .coursesPage .subTitle{
+        right: 13px;
+    }
+}

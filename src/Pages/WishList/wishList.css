@@ -1,0 +1,8 @@
+.bigBox {
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+
+.bigBox::-webkit-scrollbar {
+    display: none; 
+}

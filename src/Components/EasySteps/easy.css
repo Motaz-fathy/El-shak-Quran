@@ -1,0 +1,27 @@
+.easy{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: column; 
+}
+.easyComponent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .easyComponent {
+      flex-direction: row; /* يجعل البوكسات بجانب بعضها */
+    }
+  }
+
+.easyComponent .box{
+    padding: 20px;
+    background-color: var(--secound-bg-color);
+    border-radius: var(--md-border);
+    position: relative;
+    text-align: center;
+}

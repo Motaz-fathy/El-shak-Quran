@@ -1,0 +1,9 @@
+.custom-swiper .swiper-button-next,
+.custom-swiper .swiper-button-prev {
+  color: var( --main-color) !important;
+  margin: 5px 10px;
+}
+
+
+
+

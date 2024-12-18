@@ -1,0 +1,225 @@
+.headers img{
+    cursor: pointer;
+}
+
+.headers .links{
+    font-size: 16px;
+    font-weight: 700;
+    color: black;
+    transition: 2s;
+}
+.headers .links .active{
+    color: var(--main-color);
+    position: relative;
+}
+.headers .links .active::before{
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: var(--main-border-color);
+    border-radius: 50%;
+}
+
+.showBar,
+.close{
+    display: none ;
+}
+
+@media ( max-width: 1100px ) {
+    .headers .links{
+        font-size: 14px;
+        font-weight: 600;
+        gap: 12px;
+    }
+}
+
+
+@media ( max-width: 992px ) {
+    .headers .links{
+        display: none;
+    }
+}
+@media ( max-width: 992px ) {
+    .headers .links{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--main-bgLight-color);
+        box-shadow: 0 0 10px var(--main-green-color);
+        width: 300px;
+        height: 100vh;
+        z-index: 11111;
+        display: none;
+        flex-direction: column;
+        padding-top: 50px;
+        gap: 20px;
+        font-size: 16px;
+        font-weight: 700;
+    }
+    .headers .links.active{
+        display: flex;
+    }
+    .headers .links .active::before{
+        display: none;
+    }
+    .showBar{
+        font-size: 25px;
+        cursor: pointer;
+        color: var(--main-green-color);
+        display: block;
+    }
+    .close{
+        font-size: 25px;
+        cursor: pointer;
+        color: var(--main-green-color);
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 250px;
+        z-index: 22222;
+    }
+    .close.active{
+        display: none;
+    }
+}
+
+
+/*  DropDown  ------------------------*/
+.dropdown{
+    position: relative;
+}
+.dropDwonList{
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 150px;
+    background-color: var(--main-bgLight-color);
+    color: var(--main-green-color);
+    z-index: 99999999999999999999999999;
+    height: 0;
+    overflow: hidden;
+    transition: .2s;
+}
+.dropDwonList h4{
+    border-bottom: 1px solid var(--main-green-color);
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.dropdown:hover .dropDwonList {
+    height: 105px;
+    overflow :visible;
+}
+.dropdownIcon{
+    transform: rotate(90deg);
+    font-size: 14px;
+    color: var(--main-green-color);
+    margin-right: 5px;
+    transition: .2s;
+}
+.dropdown:hover .dropdownIcon{
+    transform: rotate(-3deg);
+}
+
+/* دروس قؤان كريم  --------*/
+.dropDwonQuran ul{
+    background-color: var(--main-bgLight-color);
+    height: 0;
+    overflow: hidden;
+    transition: .3s;
+}
+.dropDwonQuran ul li{
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    border-bottom: 1px solid black;
+    padding: 3px 20px;
+    text-align: center;
+}
+.dropDwonQuran:hover ul{
+    height: 300px;
+    overflow: visible;
+}
+.dropDwonQuranIcon{
+    transform: rotate(90deg);
+    font-size: 14px;
+    color: var(--main-green-color);
+    margin-right: 5px;
+    transition: .2s;
+}
+.dropDwonQuran:hover .dropDwonQuranIcon{
+    transform: rotate(-3deg);
+}
+
+
+
+/* دروس  لغة عربية  --------*/
+.dropDwonLang ul{
+    background-color: var(--main-bgLight-color);
+    height: 0;
+    overflow: hidden;
+    transition: .3s;
+}
+.dropDwonLang ul li{
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    border-bottom: 1px solid black;
+    padding: 3px 10px;
+    text-align: center;
+}
+.dropDwonLang:hover ul{
+    height: 180px;
+    overflow: visible;
+}
+.dropDwonLangIcon{
+    transform: rotate(90deg);
+    font-size: 14px;
+    color: var(--main-green-color);
+    margin-right: 5px;
+    transition: .2s;
+}
+.dropDwonLang:hover .dropDwonLangIcon{
+    transform: rotate(-3deg);
+}
+
+
+
+/* دروس   اسلامية   --------*/
+.dropDwonLesson ul{
+    background-color: var(--main-bgLight-color);
+    height: 0;
+    overflow: hidden;
+    transition: .3s;
+}
+.dropDwonLesson ul li{
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    border-bottom: 1px solid black;
+    padding: 3px 10px;
+    text-align: center;
+}
+.dropDwonLesson:hover ul{
+    height: 180px;
+    overflow: visible;
+}
+.dropDwonLessonIcon{
+    transform: rotate(90deg);
+    font-size: 14px;
+    color: var(--main-green-color);
+    margin-right: 5px;
+    transition: .2s;
+}
+.dropDwonLesson:hover .dropDwonLessonIcon{
+    transform: rotate(-3deg);
+}
+
+
+
+

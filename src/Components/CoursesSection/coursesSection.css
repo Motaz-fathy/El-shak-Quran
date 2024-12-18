@@ -1,0 +1,31 @@
+
+
+@media (  max-width : 850px  ) {
+    .coursesEction .box .iconImg{
+        margin-right: 10px;
+        width: 30%;
+    } 
+    .coursesEction .box p{
+        font-size: 22px;
+    }
+    .coursesEction .box button{
+        font-size: 20px;
+    }
+}
+@media (  max-width : 550px ) {
+    .coursesEction .bigBox{
+        flex-direction: column;
+    }
+    .coursesEction .box{
+        width: 100%;
+    }
+    .coursesEction .box p{
+        font-size: 26px;
+    }
+    .coursesEction .box button{
+        font-size: 26px;
+    }
+    .coursesEction .title{
+        font-size: 32px;
+    }
+} 

@@ -1,0 +1,15 @@
+
+
+@media ( max-width : 992px )  {
+    .start .arrow{
+        display : none ;
+    }
+    .start .bigBox .center{
+        margin-top: 0;
+    }
+}
+@media ( max-width : 520px ){
+    .start .bigBox {
+        flex-direction: column;
+    }
+}

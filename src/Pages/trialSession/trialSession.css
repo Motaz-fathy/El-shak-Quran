@@ -1,0 +1,40 @@
+
+
+
+
+
+
+
+/* .TrialSessionComponent{
+    position: relative;
+    z-index: 2;
+}
+.TrialSessionComponent .left-img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+} */
+
+.TrialSessionComponent .text h3{
+    font-size: 25;
+    font-weight: 400;
+    line-height: 35px;
+}
+.TrialSessionComponent .text p{
+    color: var(--main-green-color);
+    font-size: 29;
+    font-weight: 700;
+    line-height: 37.7px;
+}
+
+.TrialSessionComponent .text span{
+    font-size: 25;
+    font-weight: 400;
+    line-height: 35px;
+}
+
+
+form{
+    background-color: #CBEDD5;
+}

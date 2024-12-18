@@ -1,0 +1,16 @@
+
+
+
+@media ( max-width : 767px ) {
+    .number {
+        margin: 40px 0;
+        padding: 0 10px;
+        flex-wrap: wrap;
+        row-gap: 30px;
+    }
+    .number .box{
+        width: 48%;
+        gap : 3px;
+    }
+}
+
