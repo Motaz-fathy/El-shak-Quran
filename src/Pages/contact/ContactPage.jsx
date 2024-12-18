@@ -76,7 +76,6 @@ const ContactPage = () => {
       </div>
     </div>
   );
-}
+};
 
-
-export default  ContactPage
+export default ContactPage;

@@ -38,9 +38,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import BlogsDetails from "./Pages/BlogsDetails/BlogsDetails";
-import ContactPage from "./Pages/contact/contact";
-// import ReadPage from "./Components/Read/read";
-// import VoicePage from "./Components/Itsvoice/voice";
+// import ContactPage from "./Pages/contact/contact";
+import ReadPage from "./Components/Read/ReadPage";
+import VoicePage from "./Components/Itsvoice/VoicePage";
+import ContactPage from "./Pages/contact/ContactPage";
 
 function App() {
   return (
@@ -62,11 +63,11 @@ function App() {
             <Route path="/plan" element={<Plan />} />
             <Route path="/egazat" element={<EgazatPage />} />
             <Route path="/itsLibrary" element={<ItsLibrary />} />
-            {/* <Route path="/read" element={<ReadPage />} /> */}
+            <Route path="/read" element={<ReadPage />} />
             <Route path="/books" element={<Books />} />
             <Route path="/viewBook" element={<ViewBook />} />
             <Route path="/visible" element={<Visible />} />
-            {/* <Route path="/Voice" element={<VoicePage />} /> */}
+            <Route path="/Voice" element={<VoicePage />} />
             <Route path="/egazat/:id" element={<EgazatDetailsPage />} />
             <Route path="/pricingpage" element={<PricingPage />} />
             <Route path="/subsriptionform" element={<SubscriptionForm />} />
