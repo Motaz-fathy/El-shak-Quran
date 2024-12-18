@@ -3,7 +3,7 @@ import './App.css'
 import Footer from './Components/Footer/Footer'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home/Home';
-import TrialSession from './Pages/trialSession/trialSession';
+import TrialSession from './Pages/trialSession/TrialSession';
 import Plan from './Components/Plan/Plan';
 import EgazatPage from './Pages/EgazatPage';
 import EgazatDetailsPage from './Pages/EgazatDetailsPage';
