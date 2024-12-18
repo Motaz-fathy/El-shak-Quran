@@ -146,7 +146,7 @@ const VoicePage = () => {
               </button>
             </div>
 
-            {/* أيقونة المفضلة */}
+            {/*  المفضلة */}
             <button className="mt-2 absolute top-1 left-3">
               <FontAwesomeIcon
                 className="text-[--main-light-color]"
