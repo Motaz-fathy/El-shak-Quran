@@ -156,20 +156,22 @@ import axios from "axios";
 import sliderImg from "../../assets/images/home/heroImg.png";
 import border from "../../assets/images/home/lastBorder1.png";
 import stekar from '../../assets/images/home/stekar.png'
+import useLocalizationContext from "../../Context/localizationContext/localizationContext";
 // import "./heroHome.css";
 
 const HeroHome = () => {
   const [data, setData] = useState([]);
+  const { isEnglish } = useLocalizationContext()
 
   // -----------------------------------------------------------------
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
-        const interval = setInterval(() => {
-          setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
-        }, 2000); 
-    
-        return () => clearInterval(interval); // Cleanup on component unmount
-      }, [data.length]);
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
+    }, 2000);
+
+    return () => clearInterval(interval); // Cleanup on component unmount
+  }, [data.length]);
 
 
 
@@ -189,12 +191,12 @@ const HeroHome = () => {
   }, []);
 
 
-  
+
   return (
     <div className="heroHome my-10 min-w-[100%] overflow-hidden relative w-full">
       <div
-        className="slider flex items-center  flex-row-reverse transition-transform duration-500 ease-in-out w-full" 
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        className="slider flex items-center  flex-row-reverse transition-transform duration-500 ease-in-out w-full"
+        style={{ transform: `translateX(${!isEnglish && "-"}${currentIndex * 100}%)` }}
       >
         {data.map((item, index) => (
           <div className="box h-[520px] lg:h-[580px]  bg-[--main-bgLight-color] rounded-lg  min-w-[100%]  flex flex-shrink-0 items-center justify-center gap-10 flex-col pb-40 lg:pb-0 relative" key={index}>
@@ -207,7 +209,7 @@ const HeroHome = () => {
 
 
             <div className="content flex justify-between w-[100%] px-2 md:px-20">
-            
+
               <div className="twoBox w-[60%] relative">
                 <div className="subBox one  text-[white] w-[400px] md:w-[600px] lg:w-[300px] flex items-center gap-2 flex-col">
                   <h5 className="bg-[--main-green-color] w-[fit-content]  px-3 border-2 border-[--main-border-color] rounded-lg">{item.novels[0]?.name || "اسم الرواية غير متاح"}</h5>
@@ -218,14 +220,14 @@ const HeroHome = () => {
                 </div>
 
                 <div className="subBox two text-[white] w-[400px] md:w-[600px] lg:w-[300px] flex items-center gap-2 flex-col absolute bottom-[-105%] md:bottom-[-120%] right-[0] md:right-[0] lg:bottom-[0] lg:right-[40%]">
-                  <h5  className="bg-[--main-green-color] w-[fit-content]  px-3 border-2 border-[--main-border-color] rounded-lg" >{item.novels[1]?.name || "اسم الرواية غير متاح"}</h5>
+                  <h5 className="bg-[--main-green-color] w-[fit-content]  px-3 border-2 border-[--main-border-color] rounded-lg" >{item.novels[1]?.name || "اسم الرواية غير متاح"}</h5>
                   <div className="list  p-5 bg-[--main-green-color] w-[fit-content]  px-3 border-2 border-[--main-border-color] rounded-lg flex items-center flex-col gap-2">
                     <p>{item.novels[1]?.description || "الوصف غير متاح"}</p>
                     <button className="bg-[--main-bgLight-color] text-[#111] rounded-md border-2 border-[--main-border-color] text-[16px] px-5 flex items-center flex-col gap-2">قراءة المزيد</button>
                   </div>
                 </div>
               </div>
-            
+
               <div className="image w-[35%] hidden lg:block">
                 <img className="sliderImg w-[100%] he-[100%]" src={sliderImg} alt="Slider" />
               </div>

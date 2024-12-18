@@ -1,0 +1,66 @@
+{
+  "header": {
+    "topHeader": {
+      "icons": {
+        "youtube": "YouTube",
+        "facebook": "Facebook",
+        "whatsap": "WhatsApp"
+      },
+      "trialSessionButton": "Book a Trial Session"
+    },
+    "bottomHeader": {
+      "home": "Home",
+      "egazat": "Vacations",
+      "courses": {
+        "title": "Courses",
+        "dropdown": {
+          "quranLessons": "Quran Lessons",
+          "arabicLessons": "Arabic Lessons",
+          "islamicLessons": "Islamic Lessons"
+        },
+        "courseList": {
+          "quran": [
+            "Quran Memorization",
+            "Quran Tafsir",
+            "Quran Ijaza",
+            "The Ten Readings",
+            "Quran Memorization",
+            "Quran Recitation",
+            "Quran Tajweed",
+            "Quran for Kids"
+          ],
+          "arabic": [
+            "Arabic Language Course for Adults",
+            "Arabic Language Course for Kids",
+            "Noorani Qaida Course",
+            "Arabic Conversation Course",
+            "Arabic Course for Quran Reading"
+          ],
+          "islamic": [
+            "Hadith Course",
+            "Fiqh Course",
+            "Aqeedah Course",
+            "New Muslims Course",
+            "New Muslims Shahada Course"
+          ]
+        }
+      },
+      "pricingPage": "Pricing",
+      "library": "Library",
+      "sheikhs": "Sheikhs",
+      "blogs": "Blogs",
+      "faq": "FAQ",
+      "more": "More",
+      "contactUs": "Contact Us"
+    },
+    "icons": {
+      "wishlist": "Wishlist",
+      "cart": "Shopping Cart",
+      "profile": "User Profile"
+    },
+    "languageSwitch": {
+      "english": "English",
+      "arabic": "Arabic"
+    }
+  }
+}
