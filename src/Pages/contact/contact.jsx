@@ -2,7 +2,7 @@ import Overlay from "../../assets/images/contact/Overlay.png";
 import design4 from "../../assets/images/contact/design4.png";
 import photo from "../../assets/images/contact/photo.png";
 
-const Contact = () => {
+const ContactPage = () => {
   return (
     <div className=" w-[100%] relative">
       <div className="flex mt-12 w-full justify-between ">
@@ -79,4 +79,4 @@ const Contact = () => {
 }
 
 
-export default  Contact
+export default  ContactPage

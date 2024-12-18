@@ -16,7 +16,6 @@ import Login from "./Pages/Authpages/Login";
 import ArabicLoginTailwind from "./Pages/Authpages/regester";
 import Newpass from "./Pages/Authpages/newpass";
 import Joinus from "./Pages/Joinus";
-import Contact from "./Pages/contact/Contact";
 import ShoppingCart from "./Pages/ShoppingCart/ShoppingCart";
 import WishList from "./Pages/WishList/WishList";
 import Blogs from "./Pages/Blogs/Blogs";
@@ -41,6 +40,7 @@ import "swiper/css/pagination";
 import BlogsDetails from "./Pages/BlogsDetails/BlogsDetails";
 import Read from "./Components/Read/read";
 import Voice from "./Components/Itsvoice/voice";
+import ContactPage from "./Pages/contact/contact";
 
 function App() {
   return (
@@ -82,7 +82,7 @@ function App() {
             <Route path="/Regester" element={<ArabicLoginTailwind />} />
             <Route path="/newpass" element={<Newpass />} />
             <Route path="/joinus" element={<Joinus />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
           <Footer />
           <a href="#">
