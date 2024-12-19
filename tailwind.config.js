@@ -3,13 +3,17 @@
 import plugin from 'tailwindcss/plugin';
 /** @type {import('tailwindcss').Config} */
 export default {
-  
+
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
     "./public/index.html"
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'max-sm': { 'max': '550px' },
+      },
+    },
   },
   plugins: [
     plugin(function ({ addUtilities }) {

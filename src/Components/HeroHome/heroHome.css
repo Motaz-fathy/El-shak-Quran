@@ -8,7 +8,8 @@
   padding-top: 20px;
   position: relative;
 }
-.heroHome .slider { 
+
+.heroHome .slider {
   /* transition: transform 0.5s ease-in-out;  */
   /* ----------------------------------------------------------------------- */
   display: flex;
@@ -16,50 +17,60 @@
   transition: transform 0.5s ease-in-out;
   width: 100%;
 }
+
+:root:lang(en) .heroHome .slider {
+  flex-direction: row;
+}
+
 .heroHome .box {
   position: relative;
-  min-width: 100%; 
+  min-width: 100%;
   height: 700px;
   padding-top: 40px;
-  flex: 0 0 100%; 
-/* ----------------------------------------------------------------------- */
+  flex: 0 0 100%;
+  /* ----------------------------------------------------------------------- */
 }
-.heroHome .box .title{
+
+.heroHome .box .title {
   text-align: center;
   width: fit-content;
   font-size: 40px;
   color: var(--main-color);
   font-weight: 700;
-  margin: 40px auto  ;
-
+  margin: 40px auto;
 }
-.heroHome .box .sliderImg{
+
+.heroHome .box .sliderImg {
   position: absolute;
   bottom: 30px;
   left: 30px;
   width: 37%;
   height: 65%;
 }
-.heroHome .box .subBox.one{
+
+.heroHome .box .subBox.one {
   position: absolute;
   top: 15%;
   right: 10%;
 }
-.heroHome .box .subBox.two{
+
+.heroHome .box .subBox.two {
   position: absolute;
   top: 45%;
   right: 30%;
 }
-.heroHome .box .subBox h5{
+
+.heroHome .box .subBox h5 {
   background-color: var(--main-dark-color);
   width: fit-content;
   padding: 5px 10px;
   color: white;
   border-radius: var(--sm-border);
   border: 1px solid var(--main-border-color);
-  margin: 0 auto 10px ;
+  margin: 0 auto 10px;
 }
-.heroHome .box .subBox .list{
+
+.heroHome .box .subBox .list {
   background-color: var(--main-dark-color);
   border: 1px solid var(--main-border-color);
   width: 320px;
@@ -69,69 +80,77 @@
   color: white;
   padding: 20px;
 }
-.heroHome .box .subBox .list button{
+
+.heroHome .box .subBox .list button {
   background-color: var(--body-bg-color);
   color: black;
   border: 1px solid var(--main-border-color);
   border-radius: var(--sm-border);
   width: fit-content;
-  margin: 20px auto 0 ;
+  margin: 20px auto 0;
   padding: 2px 15px;
 }
-.heroHome .stekar{
+
+.heroHome .stekar {
   position: absolute;
   bottom: 13%;
   right: 6%;
 }
-.heroHome .box .borderImg{
+
+.heroHome .box .borderImg {
   width: 23%;
   position: absolute;
   top: 0px;
   left: 38%;
 }
-.stekarTop{
+
+.stekarTop {
   display: none;
 }
 
-
-
-
-@media ( max-width : 1050px ) {
+@media (max-width: 1050px) {
   .heroHome .box {
     height: 600px;
     padding-top: 20px;
     padding-bottom: 50px;
   }
-  
-  .heroHome .box .title{
+
+  .heroHome .box .title {
     font-size: 30px;
-    margin: 20px auto  ;
+    margin: 20px auto;
   }
-  .stekar{
+
+  .stekar {
     width: 100px;
   }
-  .heroHome .box .sliderImg{
+
+  .heroHome .box .sliderImg {
     width: 30%;
     height: 40%;
     top: 50%;
     transform: translateY(-50%);
     display: none;
   }
-  .heroHome .box .subBox{
-    width:300px;
+
+  .heroHome .box .subBox {
+    width: 300px;
   }
-  .heroHome .box .subBox .list{
+
+  .heroHome .box .subBox .list {
     width: 100%;
   }
-  .heroHome .box .subBox.one{
+
+  .heroHome .box .subBox.one {
     top: 20%;
     right: 10%;
   }
-  .heroHome .box .subBox.two{
+
+  .heroHome .box .subBox.two {
     top: 50%;
     right: 48%;
   }
-  .stekarTop{
+
+  .stekarTop {
     display: block;
     position: absolute;
     top: 20%;
@@ -139,40 +158,45 @@
     width: 100px;
     /* display: none; */
   }
-  .heroHome .box .borderImg{
+
+  .heroHome .box .borderImg {
     display: none;
   }
-}  
+}
 
-
-@media ( max-width : 500px ){
-  .heroHome .box .title{
-    margin: -30px auto  ;
+@media (max-width: 500px) {
+  .heroHome .box .title {
+    margin: -30px auto;
     font-size: 34px;
     padding-bottom: 20px;
   }
-  .heroHome .box .subBox{
-    width:400px;
+
+  .heroHome .box .subBox {
+    width: 400px;
   }
-  .heroHome .box .subBox.one{
+
+  .heroHome .box .subBox.one {
     top: 10%;
     right: 0;
   }
-  .heroHome .box .subBox.two{
+
+  .heroHome .box .subBox.two {
     top: 55%;
     right: 0;
   }
-  .heroHome .stekar{
+
+  .heroHome .stekar {
     position: absolute;
     top: 45px;
     /* left: 400px; */
     width: 30px;
   }
-  .stekarTop{
+
+  .stekarTop {
     display: block;
     position: absolute;
     top: 0;
     left: 10%;
     width: 60px;
   }
-}   
+}
