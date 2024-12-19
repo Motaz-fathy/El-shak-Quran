@@ -1,4 +1,4 @@
-    import React from 'react'
+    // import React from 'react'
     import joinus from '../assets/images/joinus/joinus.png'
     import design1 from '../assets/images/general/design1.png'
     import desigh3 from '../assets/images/general/design3.png'
