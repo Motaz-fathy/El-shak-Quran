@@ -1,4 +1,4 @@
-import React from 'react';
+
 import joinus from '../assets/images/joinus/joinus.png';
 import design1 from '../assets/images/general/design1.png';
 import desigh3 from '../assets/images/general/design3.png';
@@ -6,6 +6,7 @@ import { Link, Outlet } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useFormik } from 'formik';
+
 
 export default function Joinus() {
     const initialValues = {

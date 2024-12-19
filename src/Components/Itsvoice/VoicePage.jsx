@@ -21,7 +21,7 @@ const VoicePage = () => {
       try {
         const response = await fetch("https://quran.codecraft1.com/api/surah");
         const data = await response.json();
-        setSurahs(data); // تخزين البيانات في state
+        setSurahs(data.data); // تخزين البيانات في state
       } catch (error) {
         console.error("Error fetching Surahs:", error);
       }
@@ -39,6 +39,7 @@ const VoicePage = () => {
     const newValue = event.target.value;
     setProgress(newValue);
   };
+
 
   return (
     <div>
