@@ -31,7 +31,7 @@ const Header = () => {
 
     return (
         <div className="headers relative" >
-            <div className={`topHeader flex items-center gap-2 md:gap-5 justify-end mt-2 md:mt-4 ${isEnglish?"":""}`}>
+            <div className={`topHeader flex items-center gap-2 md:gap-5 justify-end mt-2 md:mt-4 ${isEnglish ? "" : ""}`}>
                 <div className="icons flex items-center gap-1 md:gap-3">
                     <img src={youtube} alt="youtube" />
                     <img src={facebook} alt="facebook" />
@@ -129,7 +129,7 @@ const Header = () => {
                     <Link onClick={handlePop} className="relative">
                         <FontAwesomeIcon className="text-[#0F8A73] text-[20px]" icon={faUser} />
                     </Link>
-                    <div className="flex items-center gap-2" onClick={() => {
+                    <div className="flex items-center gap-2 cursor-pointer" onClick={() => {
                         changeLanguage(isEnglish ? "ar" : "en");
                     }}>
                         <img src={isEnglish ? eng : ar} alt={isEnglish ? "english" : "عربى"} />
