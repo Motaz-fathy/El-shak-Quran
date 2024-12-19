@@ -1,5 +1,19 @@
 import PropTypes from 'prop-types';
-const SectionData = ({ last = false, item = [], title }) => {
+import useAuth from '../../Context/authContext/authContext';
+import axios from 'axios';
+const SectionData = ({ last = false, close = "", item = [], title }) => {
+    const { token, logout } = useAuth()
+    const handelLogout = async () => {
+        const response = await axios.delete("https://quran.codecraft1.com/api/auth/logout ", {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        if (response.status === 200) {
+            logout()
+            close()
+        }
+    }
     return (
         <div className="flex justify-center w-full">
             {title && (
@@ -11,7 +25,7 @@ const SectionData = ({ last = false, item = [], title }) => {
                 {item.map(({ label, value }, index) => (
                     <div key={index}>
                         <li className="text-black sm:text-center">{`${label} : ${value || "No value provided"}`}</li>
-                        {last && <button className='globalButton block  mx-auto mt-5 mb-2'>تسجيل الخروح</button>}
+                        {last && <button className='globalButton block  mx-auto mt-5 mb-2' onClick={handelLogout}>تسجيل الخروح</button>}
                     </div>
                 ))}
             </ul>
@@ -30,7 +44,7 @@ SectionData.propTypes = {
     title: PropTypes.string
 };
 
-const UserProfile = () => {
+const UserProfile = ({ close }) => {
     return (
         <div className="w-full max-w-[550px] max-sm:w-[380px] rounded overflow-hidden absolute left-[20px] top-[120px] z-50 shadow max-sm:top-[100px] max-sm:left-[0px]">
             <SectionData
@@ -53,6 +67,7 @@ const UserProfile = () => {
 
             <SectionData
                 last={true}
+                close={close}
                 item={[
                     { label: "أسم الكورس ", value: "1-1-2019" },
                 ]}

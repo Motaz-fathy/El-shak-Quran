@@ -24,7 +24,7 @@ const LocalizationsProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        const currentLanguage = localStorage.getItem("language") || "en";
+        const currentLanguage = localStorage.getItem("language") || "ar";
         changeLanguage(currentLanguage);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
