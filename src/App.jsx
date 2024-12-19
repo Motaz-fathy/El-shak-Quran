@@ -156,6 +156,7 @@ import ReadPage from "./Components/Read/ReadPage";
 import VoicePage from "./Components/Itsvoice/VoicePage";
 import ContactPage from "./Pages/contact/ContactPage";
 import { ProtectedRoute, PublicRoute } from "./Components/ProtectedRoute/ProtectedRoute";
+import NotFound from "./Pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -198,6 +199,7 @@ function App() {
             <Route path="/coursesdetails/:name" element={<ProtectedRoute><Courses /></ProtectedRoute>} />
             <Route path="/blogsdetails/:id" element={<ProtectedRoute><BlogsDetails /></ProtectedRoute>} />
             <Route path="/qurancourse" element={<ProtectedRoute><Courses /></ProtectedRoute>} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
         <Footer />
