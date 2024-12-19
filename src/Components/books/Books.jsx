@@ -1,21 +1,23 @@
+import img from "../../assets/images/general/SVG (1).png";
 import { useState, useEffect } from "react";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import img from "../../assets/images/general/SVG (1).png";
-
-
+import axios from "axios";
 
 const Books = () => {
   const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await fetch("");
-        const data = await response.json();
-        setBooks(data);
-      } catch (error) {
-        console.error("Error fetching books:", error);
+        const response = await axios.get("https://quran.codecraft1.com/api/books");
+        setBooks(response.data);
+        setLoading(false);
+      } catch {
+        setError("Error fetching books.");
+        setLoading(false);
       }
     };
 
@@ -33,7 +35,7 @@ const Books = () => {
           placeholder="اكتب اسم القراءة"
           className="p-2 rounded-md border-2 bg-[#EAF8F4] w-36 md:w-80 pr-10 focus:outline-none "
           style={{
-            borderColor: "var(--main-dark-color)", // تحديد لون الإطار باستخدام المتغير
+            borderColor: "var(--main-dark-color)",
           }}
         />
         <FontAwesomeIcon
@@ -47,55 +49,33 @@ const Books = () => {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-5">
-        {/* <div className="flex flex-col w-[150px] md:min-w-[200px] pt-16 pb-2 px-5 border border-[--main-color] rounded-tl-[100px] rounded-tr-[100px] gap-5 bg-[--secound-bg-color] items-center justify-center">
-          <img src={img} alt="img" />
-          <p className="text-center">Seerah and Hadeeth</p>
-        </div> */}
-
-        {books.map((book, index) => (
-          <div
-            key={index}
-            className="flex flex-col w-[150px] md:min-w-[200px] pt-16 pb-2 px-5 border border-[--main-color] rounded-tl-[100px] rounded-tr-[100px] gap-5 bg-[--secound-bg-color] items-center justify-center"
-          >
-            <img
-              src={book.image || <img src={img} alt="img" />}
-              alt={book.title}
-            />
-            <p className="text-center">{book.title || <p>Seerah and Hadeeth</p>}</p>
-          </div>
-        ))}
-
-      </div>
-
-      <div className="w-full flex justify-center mt-16 mb-8">
-        <h2 className="globalMain-header text-[28px]">كتب القرآن والتجويد</h2>
-      </div>
-
-      <div className="flex flex-wrap items-center justify-center gap-5">
-        <div className="flex flex-col w-[150px] md:min-w-[200px] pt-16 pb-2 px-5 border border-[--main-color] rounded-tl-[100px] rounded-tr-[100px] gap-5 bg-[--secound-bg-color] items-center justify-center">
-          <img src={img} alt="img" />
-          <p className="text-center">Seerah and Hadeeth</p>
-        </div>
-
-        <div className="flex flex-col w-[150px] md:min-w-[200px] pt-16 pb-2 px-5 border border-[--main-color] rounded-tl-[100px] rounded-tr-[100px] gap-5 bg-[--secound-bg-color] items-center justify-center">
-          <img src={img} alt="img" />
-          <p className="text-center">Seerah and Hadeeth</p>
-        </div>
-
-        <div className="flex flex-col w-[150px] md:min-w-[200px] pt-16 pb-2 px-5 border border-[--main-color] rounded-tl-[100px] rounded-tr-[100px] gap-5 bg-[--secound-bg-color] items-center justify-center">
-          <img src={img} alt="img" />
-          <p className="text-center">Seerah and Hadeeth</p>
-        </div>
-
-        <div className="flex flex-col w-[150px] md:min-w-[200px] pt-16 pb-2 px-5 border border-[--main-color] rounded-tl-[100px] rounded-tr-[100px] gap-5 bg-[--secound-bg-color] items-center justify-center">
-          <img src={img} alt="img" />
-          <p className="text-center">Seerah and Hadeeth</p>
-        </div>
-
-        <div className="flex flex-col w-[150px] md:min-w-[200px] pt-16 pb-2 px-5 border border-[--main-color] rounded-tl-[100px] rounded-tr-[100px] gap-5 bg-[--secound-bg-color] items-center justify-center">
-          <img src={img} alt="img" />
-          <p className="text-center">Seerah and Hadeeth</p>
-        </div>
+        {loading && <p>جاري تحميل الكتب...</p>}
+        {error && <p>{error}</p>}
+        {!loading &&
+          !error &&
+          books.map((book, index) => (
+            <div
+              key={book.id || index}
+              className="flex flex-col w-[150px] md:min-w-[200px] pt-16 pb-2 px-5 border border-[--main-color] rounded-tl-[100px] rounded-tr-[100px] gap-5 bg-[--secound-bg-color] items-center justify-center"
+            >
+              <img
+                src={img}
+                alt="Book Image"
+                className="h-[150px] w-[100px] object-cover"
+              />
+              <p className="text-center">
+                {book.description || "No description available"}
+              </p>
+              <a
+                href={book.file}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-center text-blue-600 underline"
+              >
+                تحميل الكتاب
+              </a>
+            </div>
+          ))}
       </div>
     </div>
   );

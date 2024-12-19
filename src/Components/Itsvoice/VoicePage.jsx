@@ -8,38 +8,44 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
-// import ReactHowler from "react-howler";
-
+import axios from "axios";
 
 const VoicePage = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [surahs, setSurahs] = useState([]);
-  // Api - https://quran.codecraft1.com/api/surah
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [currentSurah, setCurrentSurah] = useState(null); // Track the current Surah
+
   useEffect(() => {
     const fetchSurahs = async () => {
       try {
-        const response = await fetch("https://quran.codecraft1.com/api/surah");
-        const data = await response.json();
-        setSurahs(data.data); // تخزين البيانات في state
-      } catch (error) {
-        console.error("Error fetching Surahs:", error);
+        const response = await axios.get("https://quran.codecraft1.com/api/surah");
+        setSurahs(response.data.data);
+        setLoading(false);
+      } catch {
+        setError("Error fetching Surahs.");
+        setLoading(false);
       }
     };
 
     fetchSurahs();
   }, []);
 
-
   const togglePlayPause = () => {
     setIsPlaying(!isPlaying);
+  };
+
+  const handleCardClick = (surah) => {
+    setCurrentSurah(surah); // Set the clicked Surah as the current Surah
+    setIsPlaying(true); // Automatically start playing
   };
 
   const handleSeek = (event) => {
     const newValue = event.target.value;
     setProgress(newValue);
   };
-
 
   return (
     <div>
@@ -50,9 +56,9 @@ const VoicePage = () => {
         <input
           type="text"
           placeholder="اكتب اسم القراءة"
-          className="p-2 rounded-md border-2 bg-[#EAF8F4] w-36 md:w-80 pr-10 focus:outline-none "
+          className="p-2 rounded-md border-2 bg-[#EAF8F4] w-36 md:w-80 pr-10 focus:outline-none"
           style={{
-            borderColor: "var(--main-dark-color)", // تحديد لون الإطار باستخدام المتغير
+            borderColor: "var(--main-dark-color)",
           }}
         />
         <FontAwesomeIcon
@@ -61,16 +67,16 @@ const VoicePage = () => {
         />
       </div>
 
+      {/* Main Player */}
       <div
         style={{ boxShadow: "0 1px 6px -1px var(--main-green-color)" }}
         className="audio-player shadow-md p-4 mx-1 rounded-lg flex flex-col items-center my-7 relative"
       >
-        {/* العنوان */}
-        <h3 className="text-lg font-semibold mb-2">سورة الكهف</h3>
+        <h3 className="text-lg font-semibold mb-2">
+          {currentSurah ? currentSurah.name : "اختر سورة للتشغيل"}
+        </h3>
 
-        {/* واجهة الصوت */}
         <div className="w-full mb-3">
-          {/* الشريط الزمني */}
           <input
             type="range"
             value={progress}
@@ -79,91 +85,58 @@ const VoicePage = () => {
           />
         </div>
 
-        {/* أزرار التحكم */}
         <div className="controls flex items-center justify-center gap-6 space-x-4">
-          <button
-            className="ml-4"
-            onClick={() => console.log("Previous Track")}
-          >
-            <FontAwesomeIcon
-              className="text-[--main-light-color]"
-              icon={faForward}
-            />
+          <button className="ml-4" onClick={() => console.log("Previous Track")}>
+            <FontAwesomeIcon className="text-[--main-light-color]" icon={faBackward} />
           </button>
-          <button className="" onClick={togglePlayPause}>
+          <button onClick={togglePlayPause}>
             {isPlaying ? (
-              <FontAwesomeIcon
-                className="text-[--main-light-color]"
-                icon={faPause}
-              />
+              <FontAwesomeIcon className="text-[--main-light-color]" icon={faPause} />
             ) : (
-              <FontAwesomeIcon
-                className="text-[--main-light-color]"
-                icon={faPlay}
-              />
+              <FontAwesomeIcon className="text-[--main-light-color]" icon={faPlay} />
             )}
           </button>
           <button className="ml-2" onClick={() => console.log("Next Track")}>
-            <FontAwesomeIcon
-              className="text-[--main-light-color]"
-              icon={faBackward}
-            />
+            <FontAwesomeIcon className="text-[--main-light-color]" icon={faForward} />
           </button>
         </div>
 
-        {/* أيقونة مفضلة */}
         <button className="mt-2 absolute top-1 left-3">
-          <FontAwesomeIcon
-            className="text-[--main-light-color]"
-            icon={faHeart}
-          />
+          <FontAwesomeIcon className="text-[--main-light-color]" icon={faHeart} />
         </button>
-
-        {/* مشغل الصوت */}
-        {/* <ReactHowler src={audioSrc} playing={isPlaying} /> */}
       </div>
-      <div className="flex flex-wrap items-center justify-center gap-7">
-        
-      <div className="flex flex-wrap items-center justify-center gap-7">
-        {surahs.map((surah) => (
-          <div
-            key={surah.id}
-            className="flex flex-col w-[150px] relative gap-5 p-4 px-5 bg-[--secound-bg-color] items-center justify-center rounded-md"
-          >
-            {/* اسم السورة */}
-            <p>{surah.name}</p>
 
-            {/* زر التشغيل */}
-            <div className="flex items-center justify-center rounded-full w-10 h-10 bg-[--main-dark-color]">
-              <button onClick={togglePlayPause}>
-                {isPlaying ? (
-                  <FontAwesomeIcon className="text-white" icon={faPause} />
-                ) : (
+      {/* Surah Cards */}
+      <div className="flex flex-wrap items-center justify-center gap-7">
+        {loading && <p>جاري تحميل السور...</p>}
+        {error && <p>{error}</p>}
+        {!loading &&
+          !error &&
+          surahs.map((surah) => (
+            <div
+              key={surah.id}
+              onClick={() => handleCardClick(surah)}
+              className="flex flex-col w-[150px] relative gap-5 p-4 px-5 bg-[--secound-bg-color] items-center justify-center rounded-md cursor-pointer"
+            >
+              <p>{surah.name || "اسم السورة غير متوفر"}</p>
+
+              <div className="flex items-center justify-center rounded-full w-10 h-10 bg-[--main-dark-color]">
+                <button>
                   <FontAwesomeIcon
                     className="text-[--main-light-color]"
                     icon={faPlay}
                   />
-                )}
+                </button>
+              </div>
+
+              <button className="mt-2 absolute top-1 left-3">
+                <FontAwesomeIcon className="text-[--main-light-color]" icon={faHeart} />
               </button>
             </div>
-
-            {/*  المفضلة */}
-            <button className="mt-2 absolute top-1 left-3">
-              <FontAwesomeIcon
-                className="text-[--main-light-color]"
-                icon={faHeart}
-              />
-            </button>
-          </div>
-        ))}
-      
-      </div>
+          ))}
       </div>
     </div>
   );
 };
 
 export default VoicePage;
-
-
-
