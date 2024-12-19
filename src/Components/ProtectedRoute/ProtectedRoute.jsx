@@ -1,37 +1,32 @@
 /* eslint-disable react/prop-types */
-import { useMemo } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import useAuth from '../../Context/authContext/authContext';
 
-
 const ProtectedRoute = ({ children }) => {
-    const { isAuth } = useAuth()
+    const { isAuth } = useAuth();
     const location = useLocation();
 
-    const shouldRedirect = useMemo(() => !isAuth, [isAuth]);
-
-    if (shouldRedirect) {
+    // Redirect to /login if not authenticated
+    if (!isAuth) {
         return <Navigate to="/login" state={{ from: location }} replace />;
     }
 
-    return children;
+    return children; // Render protected content if authenticated
 };
 
-
-
 const PublicRoute = ({ children }) => {
-    const { isAuth } = useAuth()
-
+    const { isAuth } = useAuth();
     const location = useLocation();
 
-    const from = useMemo(() => location.state?.from?.pathname || '/', [location]);
+    // Safely get the "from" location or default to "/"
+    const from = location.state?.from?.pathname || '/';
 
+    // Redirect authenticated users to the previous page or default route
     if (isAuth) {
         return <Navigate to={from} replace />;
     }
 
-    return children;
+    return children; // Render public content if not authenticated
 };
-
 
 export { ProtectedRoute, PublicRoute };

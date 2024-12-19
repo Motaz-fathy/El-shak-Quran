@@ -1,8 +1,11 @@
+/* eslint-disable react/prop-types */
 import PropTypes from 'prop-types';
 import useAuth from '../../Context/authContext/authContext';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const SectionData = ({ last = false, close = "", item = [], title }) => {
     const { token, logout } = useAuth()
+    const navigateTo = useNavigate()
     const handelLogout = async () => {
         const response = await axios.delete("https://quran.codecraft1.com/api/auth/logout ", {
             headers: {
@@ -12,6 +15,7 @@ const SectionData = ({ last = false, close = "", item = [], title }) => {
         if (response.status === 200) {
             logout()
             close()
+            navigateTo("/")
         }
     }
     return (
