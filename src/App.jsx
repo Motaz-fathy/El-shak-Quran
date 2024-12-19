@@ -42,6 +42,8 @@ import BlogsDetails from "./Pages/BlogsDetails/BlogsDetails";
 import ReadPage from "./Components/Read/ReadPage";
 import VoicePage from "./Components/Itsvoice/VoicePage";
 import ContactPage from "./Pages/contact/ContactPage";
+import CartStoreProvider from "./Context/CartContext.API";
+
 
 function App() {
   return (
@@ -52,7 +54,22 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/shoppingCart" element={<ShoppingCart />} />
+            <Route 
+              path="/shoppingCart" 
+              element={
+                <CartStoreProvider>
+                  <ShoppingCart />
+                </CartStoreProvider>
+              } 
+            />
+            <Route 
+              path="/subsriptionform" 
+              element={
+                <CartStoreProvider>
+                  <SubscriptionForm />
+                </CartStoreProvider>
+              }
+            />
             <Route path="/wishList" element={<WishList />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/elsheikhs" element={<AlShehk />} />
@@ -70,7 +87,6 @@ function App() {
             <Route path="/Voice" element={<VoicePage />} />
             <Route path="/egazat/:id" element={<EgazatDetailsPage />} />
             <Route path="/pricingpage" element={<PricingPage />} />
-            <Route path="/subsriptionform" element={<SubscriptionForm />} />
             <Route path="/commonQuestions" element={<CommonQuestions />} />
             <Route path="/ProfileTeacher/:name" element={<ProfileTecher />} />
             <Route path="/Ratings" element={<Ratings />} />

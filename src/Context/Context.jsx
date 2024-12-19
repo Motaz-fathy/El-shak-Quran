@@ -13,7 +13,7 @@ const  StoreProvider = ({ children }) => {
     const [wishlistitem, setWishListItem] = useState(() => {
       const savedWishlist = localStorage.getItem('wishlist');
       return savedWishlist ? JSON.parse(savedWishlist) : [];
-  });
+    });
 
   // Add Item to Wishlist
   const addToWishlist = (item) => {
@@ -48,39 +48,53 @@ const  StoreProvider = ({ children }) => {
 //__________________   Shopping Cart   _________________________________________________________________________________________________________________________________________
 
   //  intainal State to  ShoppingCart :-
-  const [cartItem, setCartItem] = useState(() => {
-      const savedCart = localStorage.getItem('cart');
-      return savedCart ? JSON.parse(savedCart) : [];
-  });
+  // const [cartItem, setCartItem] = useState(() => {
+  //     const savedCart = localStorage.getItem('cart');
+  //     return savedCart ? JSON.parse(savedCart) : [];
+  // });
+
+  // console.log(cartItem);
+  
+
+  // // Function To add Product to Shopping Cart :-
+  // const addToCart = (item) => {
+  //   setCartItem((prevCart) => {
+  //       const existingItem = prevCart.find(cartItem => cartItem.id === item.id);
+
+  //       if (existingItem) {
+  //           // If the item already exists in the cart, do nothing :-
+  //           return prevCart;
+  //       } else {
+  //           // If the item Not exists in the cart :-
+  //           // Add the new item to the cart :-
+  //           const updatedCart = [...prevCart, { ...item, quantity: 1}];
+  //           localStorage.setItem('cart', JSON.stringify(updatedCart));
+  //           return updatedCart;
+  //       }
+  //   });
+  // };
+
+  // // Function to calculate the total price
+  // const calculateTotalPrice = (items) => {
+  //   return items.reduce((total, item) => total + item.price, 0);
+  // };
 
 
-  // Function To add Product to Shopping Cart :-
-  const addToCart = (item) => {
-    setCartItem((prevCart) => {
-        const existingItem = prevCart.find(cartItem => cartItem.id === item.id);
-
-        if (existingItem) {
-            // If the item already exists in the cart, do nothing :-
-            return prevCart;
-        } else {
-            // If the item Not exists in the cart :-
-            // Add the new item to the cart :-
-            const updatedCart = [...prevCart, { ...item, quantity: 1 }];
-            localStorage.setItem('cart', JSON.stringify(updatedCart));
-            return updatedCart;
-        }
-    });
-  };
-
-  // Function to calculate the total price
-  const calculateTotalPrice = (items) => {
-    return items.reduce((total, item) => total + item.price, 0);
-  };
+  // useEffect(() => {
+  //   localStorage.setItem('cart', JSON.stringify(cartItem));
+  // }, [cartItem]);
 
 
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cartItem));
-  }, [cartItem]);
+
+
+//___________________________________________________________________________________________________________________________________________________________
+  // const [userData, setUserData] = useState({
+  //   userName: '',
+  //   payMethod: '',
+  //   number: '',
+  //   totalPrice: 0,
+  // });
+
 
 
   //__________________   ViewBook   _________________________________________________________________________________________________________________________________________
@@ -118,13 +132,13 @@ useEffect(() => {
 
     return (
         <Store.Provider value={{
-          cartItem,
-          addToCart,
-          calculateTotalPrice,
+          // cartItem,
+          // addToCart,
+          // calculateTotalPrice,
           addToWishlist,
           removeFromWishlist,
           addToViewBook,
-          removeFromViewBookListItem
+          removeFromViewBookListItem,
         }}>
           {children}
         </Store.Provider>

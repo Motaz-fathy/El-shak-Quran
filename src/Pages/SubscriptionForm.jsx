@@ -1,8 +1,14 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import PayPal from "../assets/images/general/PayPal.png";
+// import PayPal from "../assets/images/general/PayPal.png";
+import { useContext } from 'react';
+import { CartStore } from "../Context/CartContext.API";
+
 
 const SubscriptionForm = () => {
+
+    const { addToCart , cartItem} = useContext(CartStore);   
+
     const [plans, setPlans] = useState([]);
     const [selectedCheckbox, setSelectedCheckbox] = useState(null);
     const [isRecurring, setIsRecurring] = useState(false);
@@ -16,8 +22,23 @@ const SubscriptionForm = () => {
         country: "",
         payment_method: "",
         accept_terms: null,
-
     });
+    const [courses, setCourses] = useState([]); 
+    useEffect(() => {
+        const fetchCourses = async () => {
+            try {
+                const response = await axios.get("https://quran.codecraft1.com/api/courses");
+                if (response.data) {
+                    setCourses(response.data.data); 
+                    // console.log(response.data.data);
+                }
+            } catch (error) {
+                console.error("Error fetching courses:", error);
+            }
+        };
+        fetchCourses();
+    }, []);
+
 
     const countryCodes = [
         { country: "مصر", code: "+20" },
@@ -37,25 +58,6 @@ const SubscriptionForm = () => {
         { country: "تونس", code: "+216" },
         { country: "الجزائر", code: "+213" },
         { country: "المغرب", code: "+212" },
-    ];
-    const courses = [
-        "دورة تحفيظ القرآن الكريم",
-        "دورات تفسير القرآن الكريم",
-        "دورات إجازة القرآن الكريم",
-        "دورات القراءات العشر",
-        "دورات القرآن الكريم للأطفال",
-        "دورات تجويد القرآن الكريم",
-        "دورات تلاوة القرآن الكريم",
-        "دورات اللغة العربية للكبار",
-        "دورات اللغة العربية للأطفال",
-        "دورة القاعدة النورانية",
-        "دورة المحادثة باللغة العربية",
-        "دورات اللغة العربية لقراءة القرآن",
-        "دورات الحديث",
-        "دورات الفقه",
-        "دورات العقيدة",
-        "دورات المسلمين الجدد",
-        "دورات تعليم الشهادة للمسلمين الجدد"
     ];
 
     const arabCountries = [
@@ -107,9 +109,15 @@ const SubscriptionForm = () => {
         }));
     };
 
-    const handleRadioChange = (planName) => {
-        setFormData((prev) => ({ ...prev, subscription_plan: planName }));
+
+    const handleRadioChange = (planName, planPrice) => {
+        setFormData((prev) => ({
+            ...prev,
+            subscription_plan: planName,
+            price: planPrice, 
+        }));
     };
+    
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -117,7 +125,7 @@ const SubscriptionForm = () => {
 
     };
 
-    console.log(formData);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -128,38 +136,69 @@ const SubscriptionForm = () => {
                 {
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": "Bearer 8|YMWgpuGkQCcKCo5PTpCNIZKdxZooQAC0lK025zVl205fa130"
-
                     },
                 }
             );
 
             if (response.status === 201) {
-                console.log("Data submitted successfully");
-                console.log(response);
-
+                // console.log("Data submitted successfully");
             } else {
                 console.error("Failed to submit data");
             }
         } catch (error) {
             if (error.response) {
-                console.error("Response error:", error.response.data);
+                // console.error("Response error:", error.response.data);
                 alert(`خطأ: ${error.response.data.message || "تعذر إرسال البيانات."}`);
             } else if (error.request) {
                 console.error("No response received:", error.request);
                 alert("تعذر الاتصال بالخادم.");
             } else {
-                console.error("Error setting up request:", error.message);
+                // console.error("Error setting up request:", error.message);
                 alert("حدث خطأ غير متوقع.");
             }
         }
-
-
-
     };
 
 
+
+    const handleAddToCart = () => {
+        const selectedCourse = courses.find(course => course.name === formData.course);
+
+
+        const isAlreadyInCart = cartItem.some(item => item.name === selectedCourse.name);
+        if (isAlreadyInCart) {
+            alert("هذا الكورس موجود بالفعل");
+            return; 
+        }
+    
+        if (selectedCourse) {
+            const item = {
+                id: selectedCourse.id,   
+                name: selectedCourse.name, 
+                image: selectedCourse.image, 
+                price: formData.price || 100,
+            };
+            addToCart(item);
+            setFormData({
+                course: "",
+                plan: "",
+                subscription_plan: "",
+                name: "",
+                email: "",
+                phone: "",
+                country: "",
+                payment_method: "",
+                accept_terms: null,
+            });
+            setSelectedCheckbox(null);
+            alert("تم إضافة الكورس بنجاح");
+        }
+    };
+    
+
+
     return (
+
         <div className="flex flex-col justify-center items-center p-4">
             <h1 className="text-center text-xl lg:text-3xl font-semibold text-[#157A67] mb-2 md:mb-6"
             >
@@ -184,8 +223,8 @@ const SubscriptionForm = () => {
                         onChange={handleInputChange}
                     >
                         {courses.map((course, index) => (
-                            <option key={index} value={course}>
-                                {course}
+                            <option key={index} value={course.name}>
+                                {course.name}
                             </option>
                         ))}
                     </select>
@@ -222,22 +261,25 @@ const SubscriptionForm = () => {
                             خطط درس {selectedCheckbox} دقيقة
                         </h2>
                         <div className="space-y-2">
-                            {filteredPlans(selectedCheckbox).map((plan) => (
-                                <label
-                                    key={plan.id}
-                                    className="flex items-center space-x-reverse space-x-2"
-                                >
-                                    <input
-                                        type="radio"
-                                        name={"subscription_plan"}
-                                        value={plan.name}
-                                        className="form-radio text-green-600"
-                                        onChange={() => handleRadioChange(plan.name)}
-                                        checked={formData.subscription_plan === plan.name}
-                                    />
-                                    <span>   {plan.sessions_per_week} جلسات/أسبوع - {plan.price} دولار</span>
-                                </label>
-                            ))}
+                        {/* ----------- */}
+                        {filteredPlans(selectedCheckbox).map((plan) => (
+                            <label
+                                key={plan.id}
+                                className="flex items-center space-x-reverse space-x-2"
+                            >
+                                <input
+                                    type="radio"
+                                    name={"subscription_plan"}
+                                    value={plan.name}
+                                    className="form-radio text-green-600"
+                                    onChange={() => handleRadioChange(plan.name, plan.price)} 
+                                    checked={formData.subscription_plan === plan.name}
+                                />
+                                <span>   {plan.sessions_per_week} جلسات/أسبوع - {plan.price} دولار</span>
+                            </label>
+                        ))}
+                        {/* ----------- */}
+
                         </div>
                     </div>
                 )}
@@ -385,9 +427,11 @@ const SubscriptionForm = () => {
                     <button
                         type="button"
                         className="bg-[#0F8A73] text-white py-2 px-3 md:py-3 md:px-8  border-2 rounded-xl border-[#F0AD4E]"
+                        onClick={handleAddToCart}
                     >
                         اضف الى السلة
-                    </button>
+                    </button> 
+
                 </div>
 
 

@@ -18,7 +18,7 @@ const CoursesPage = () => {
         const fetchCourses = async () => {
             try {
                 const response = await axios.get('https://quran.codecraft1.com/api/courses');
-                 const result = response.data.data.data
+                const result = response.data.data
                 if (Array.isArray(result)) {
                     setCourses(result);
                 } else {
