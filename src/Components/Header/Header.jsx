@@ -12,6 +12,7 @@ import { faBars, faTimes, faChevronDown, faUser, faShoppingCart, faHeart } from 
 import UserProfile from "../UserProfile/UserProfile";
 import useLocalizationContext from "../../Context/localizationContext/localizationContext";
 import useLocalization from "../../hooks/useTranslation";
+import useAuth from "../../Context/authContext/authContext";
 
 const Header = () => {
     const [toggleProfile, setToggleProfile] = useState(false);
@@ -19,7 +20,7 @@ const Header = () => {
     const linksRef = useRef(null); // Reference to the links container
     const { changeLanguage, isEnglish } = useLocalizationContext();
     const content = useLocalization("header");
-
+    const { isAuth } = useAuth()
 
     const toggleMenu = () => {
         setIsMenuOpen(prevState => !prevState);
@@ -126,9 +127,11 @@ const Header = () => {
                     <Link to="/shoppingCart">
                         <FontAwesomeIcon className="text-[#0F8A73] text-[20px]" icon={faShoppingCart} />
                     </Link>
-                    <Link onClick={handlePop} className="relative">
-                        <FontAwesomeIcon className="text-[#0F8A73] text-[20px]" icon={faUser} />
-                    </Link>
+                    {
+                        isAuth && <Link onClick={handlePop} className="relative">
+                            <FontAwesomeIcon className="text-[#0F8A73] text-[20px]" icon={faUser} />
+                        </Link>
+                    }
                     <div className="flex items-center gap-2 cursor-pointer" onClick={() => {
                         changeLanguage(isEnglish ? "ar" : "en");
                     }}>
@@ -152,7 +155,7 @@ const Header = () => {
                 </div>
             </div>
 
-            {toggleProfile && <UserProfile />}
+            {toggleProfile && <UserProfile close={() => { setToggleProfile(false) }} />}
         </div>
     );
 };
