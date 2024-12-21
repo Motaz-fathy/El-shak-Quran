@@ -25,28 +25,28 @@ import img21 from "../../assets/images/about/why-us-Img/Overlay (13).png";
 import img22 from "../../assets/images/about/why-us-Img/Overlay (14).png";
 import img23 from "../../assets/images/about/why-us-Img/Overlay (15).png";
 import img24 from "../../assets/images/about/why-us-Img/Overlay (16).png";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const About = () => {
   return (
     
     <div>
-      <nav className="bg-[--main-bgLight-color] mt-3">
+      {/* <nav className="bg-[--main-bgLight-color] mt-3">
             <div className="flex gap-[4px] items-center justify-center p-3">
             <Link to='/login' 
-             className='globalButton text-center text-[8px] md:text-xl w-32 md:w-64 h-12 md:h-20 flex justify-center items-center'
+              className='globalButton text-center text-[8px] md:text-xl w-32 md:w-64 h-12 md:h-20 flex justify-center items-center'
             >تسجيل الدخول</Link>
             <Link to='/About' 
-             className='globalButton text-center text-[8px] md:text-xl w-32 md:w-64 h-12 md:h-20 flex justify-center items-center'
+              className='globalButton text-center text-[8px] md:text-xl w-32 md:w-64 h-12 md:h-20 flex justify-center items-center'
             >من نحن</Link>
             <Link to='/Joinus'  
-             className='globalButton text-center text-[8px] md:text-xl w-32 md:w-64 h-12 md:h-20 flex justify-center items-center'
+              className='globalButton text-center text-[8px] md:text-xl w-32 md:w-64 h-12 md:h-20 flex justify-center items-center'
             >انضم الينا كمعلم</Link>
             <Link to='/Ratings' 
             className='globalButton text-center text-[8px] md:text-xl w-32 md:w-64 h-12 md:h-20 flex justify-center items-center'
             >التقييمات</Link>
             </div>
-        </nav>
+        </nav> */}
       <div className="about-h3 my-3">
         <h3>من نحن</h3>
       </div>

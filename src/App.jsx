@@ -9,13 +9,13 @@ import EgazatDetailsPage from "./Pages/EgazatDetailsPage";
 import Header from "./Components/Header/Header";
 import PricingPage from "./Pages/PricingPage";
 import EasySteps from "./Components/EasySteps/EasySteps";
-import About from "./Pages/About/About";
+// import About from "./Pages/About/About";
 import { ItsLibrary } from "./Pages/ItsLibrary/ItsLibrary";
 import Courses from "./Pages/Courses/Courses";
 import Login from "./Pages/Authpages/Login";
 import ArabicLoginTailwind from "./Pages/Authpages/regester";
 import Newpass from "./Pages/Authpages/newpass";
-import Joinus from "./Pages/Joinus";
+// import Joinus from "./Pages/Joinus";
 import ShoppingCart from "./Pages/ShoppingCart/ShoppingCart";
 import WishList from "./Pages/WishList/WishList";
 import Blogs from "./Pages/Blogs/Blogs";
@@ -41,8 +41,9 @@ import BlogsDetails from "./Pages/BlogsDetails/BlogsDetails";
 // import ContactPage from "./Pages/contact/contact";
 import ReadPage from "./Components/Read/ReadPage";
 import VoicePage from "./Components/Itsvoice/VoicePage";
-import ContactPage from "./Pages/contact/ContactPage";
+// import ContactPage from "./Pages/contact/ContactPage";
 import CartStoreProvider from "./Context/CartContext.API";
+import More from "./Pages/More/More";
 
 
 function App() {
@@ -75,7 +76,8 @@ function App() {
             <Route path="/elsheikhs" element={<AlShehk />} />
             <Route path="/trialSession" element={<TrialSession />} />
             <Route path="/plan" element={<Plan />} />
-            <Route path="/about" element={<About />} />
+            {/* <Route path="/about" element={<About />} /> */}
+            <Route path="/more"  element={<More/>}/>
             <Route path="/easySteps" element={<EasySteps />} />
             <Route path="/plan" element={<Plan />} />
             <Route path="/egazat" element={<EgazatPage />} />
@@ -93,13 +95,12 @@ function App() {
             <Route path="/coursesPage" element={<CoursesPage />} />
             <Route path="/coursesdetails/:name" element={<Courses />} />
             <Route path="/blogsdetails/:id" element={<BlogsDetails />} />
-            <Route path="/login" element={<Login />} />
             <Route path="/qurancourse" element={<Courses />} />
             <Route path="/login" element={<Login />} />
             <Route path="/Regester" element={<ArabicLoginTailwind />} />
             <Route path="/newpass" element={<Newpass />} />
-            <Route path="/joinus" element={<Joinus />} />
-            <Route path="/contact" element={<ContactPage />} />
+            {/* <Route path="/joinus" element={<Joinus />} /> */}
+            {/* <Route path="/contact" element={<ContactPage />} /> */}
           </Routes>
           <Footer />
           <a href="#">

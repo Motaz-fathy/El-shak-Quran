@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link,  Outlet } from 'react-router-dom'
 import logo from '../../assets/images/iconHeader/logo.png'
 import design3 from '../../assets/images/general/design3.png'
@@ -11,14 +10,14 @@ import design1 from '../../assets/images/general/design1.png'
         <div dir="rtl" className="min-h-screen  relative font-sans">
         
         {/* Navigation */}
-        <nav className="p-6 m-10 bg-[--main-bgLight-color]  h-[159px] top-[301px] sm:flex-col">
+        {/* <nav className="p-6 m-10 bg-[--main-bgLight-color]  h-[159px] top-[301px] sm:flex-col">
             <div className="flex gap-[24px] items-center justify-center h-[100px] top-[330px] left-[91] ">
             <Link to='/login' className="p-[12px 22px 12px 22px] rounded-[15px] w-[309px] h-[100px] bg-white focus:bg-[--main-dark-color] active:text-white focus:ring-2 focus:ring-[--main-border-color] justify-center items-center flex ">تسجيل الدخول</Link>
             <Link to='/About' className="p-[12px 22px 12px 22px] rounded-[15px] w-[309px] h-[100px] bg-white focus:bg-[--main-dark-color] active:text-white focus:ring-2 focus:ring-[--main-border-color] justify-center items-center flex ">من نحن</Link>
             <Link to='/Joinus' className="p-[12px 22px 12px 22px] rounded-[15px] w-[309px] h-[100px] bg-white focus:bg-[--main-dark-color] active:text-white focus:ring-2 focus:ring-[--main-border-color] justify-center items-center flex ">انضم الينا كمعلم</Link>
             <Link to='/Ratings' className="p-[12px 22px 12px 22px] rounded-[15px] w-[309px] h-[100px] bg-white focus:bg-[--main-dark-color] active:text-white focus:ring-2 focus:ring-[--main-border-color] justify-center items-center flex ">التقييمات</Link>
             </div>
-        </nav>
+        </nav> */}
         
         {/* Decorative Images */}
         <div className="absolute top-0 right-0 w-[200px] h-auto max-w-xs">
