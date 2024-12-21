@@ -38,6 +38,9 @@ const CoursesPage = () => {
     // Reusable component for each course section
     const CourseSection = ({ title, courseType, imageSrc }) => (
         <div className="courseSection px-2 md:px-5 lg:px-10 py-10 pt-20 rounded-lg shadow-lg mb-10 flex items-center gap-5 justify-evenly bg-[--main-bgLight-color] border-[1px] border-[--main-border-color] relative">
+    {/* const CourseSection = ({ title , courseType, imageSrc }) => (
+        <div className="courseSection p-10 pt-20 rounded-lg shadow-lg mb-10 flex items-center justify-evenly bg-[--main-bgLight-color] border-[1px] border-[--main-border-color] relative">
+>>>>>>> b7e4e278d12057fb7cd200802ace3e14c5c2bb75 */}
             <h4 className="subTitle text-[--main-green-color] text-[34px] font-[700] absolute top-5 right-10">{title}</h4>
             <div className="buttons flex flex-wrap justify-between gap-y-3 lg:  md:gap-y-6 lg:gap-y-10 w-[100%] lg:w-[70%] ">
                 {courses

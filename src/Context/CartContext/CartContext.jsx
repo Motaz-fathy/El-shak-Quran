@@ -41,6 +41,10 @@ const   CartStoreProvider = ({ children }) => {
 
 
 
+    // Function to calculate the total price
+    // const calculateTotalPrice = (items) => {
+    //     return items.reduce((total, item) => total + item.price, 0);
+    // };
 
     const calculateTotalPrice = (cartItems) => {
         return cartItems.reduce((total, item) => {
@@ -76,5 +80,4 @@ const   CartStoreProvider = ({ children }) => {
 
 
 export default  CartStoreProvider ;
-
 

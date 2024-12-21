@@ -30,7 +30,7 @@ const More = () => {
             case 3:
                 return <Ratings />;
             default:
-                return null; // "من نحن" أو أي حالة أخرى
+                return null; 
         }
     };
 
