@@ -18,7 +18,7 @@ const CoursesPage = () => {
         const fetchCourses = async () => {
             try {
                 const response = await axios.get('https://quran.codecraft1.com/api/courses');
-                 const result = response.data.data.data
+                const result = response.data.data
                 if (Array.isArray(result)) {
                     setCourses(result);
                 } else {
@@ -36,7 +36,7 @@ const CoursesPage = () => {
     }, []);
 
     // Reusable component for each course section
-    const CourseSection = ({ title, courseType, imageSrc }) => (
+    const CourseSection = ({ title , courseType, imageSrc }) => (
         <div className="courseSection p-10 pt-20 rounded-lg shadow-lg mb-10 flex items-center justify-evenly bg-[--main-bgLight-color] border-[1px] border-[--main-border-color] relative">
             <h4 className="subTitle text-[--main-green-color] text-[34px] font-[700] absolute top-5 right-10">{title}</h4>
             <div className="buttons flex flex-wrap gap-10">
