@@ -54,7 +54,7 @@ const Amr = () => {
             {vedio.map((item , index) => (
                 <div key={index} className="vedio max-w-[210px] h-[160px] md:h-[300px] md:max-w-[450px] bg-[red] absolute top-[72%] left-[24%] md:left-[16%] md:top-[25%] rounded-lg overflow-hidden cursor-pointer">
                     <video 
-                        className="w-[100%] h-[100%]" 
+                        className="w-[100%] h-[100%]"  
                         controls
                         src={`https://quran.codecraft1.com/public/${item.video}`}
                     ></video>

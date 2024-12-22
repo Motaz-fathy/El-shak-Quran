@@ -15,16 +15,16 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 const Footer = () => {
   return (
     <footer className="py-5">
-      <div className="footer p-5" style={{ backgroundColor: "#7CB98E" }}>
+      <div className="footer" style={{ backgroundColor: "#7CB98E" }}>
 
         <div className="flex flex-col md:flex-row items-center gap-2">
 
           <div className="">
-          <img
-            className="w-[100px]"
-            src={logo}
-            alt="logo"
-          />
+            <img
+              className="w-[100px]"
+              src={logo}
+              alt="logo"
+            />
           </div>
 
           <h3 className="text-center text-[16px] md:text-[18px]">
@@ -159,7 +159,7 @@ const Footer = () => {
       </div>
       <div className="flex items-center gap-2 w-full mt-4">
         <p className="m-auto font-medium text-[12px] md:text-[16px]">
-        حقوق الطبع والنشر <span>&copy; 2024 Codec Craft</span> جميع الحقوق محفوظة
+          حقوق الطبع والنشر <span>&copy; 2024 Codec Craft</span> جميع الحقوق محفوظة
         </p>
       </div>
     </footer>

@@ -31,7 +31,7 @@ console.log(isAuth)
     };
 
     return (
-        <div className="headers relative" >
+        <div className="headers relative px-5"  >
             <div className={`topHeader flex items-center gap-2 md:gap-5 justify-end mt-2 md:mt-4 ${isEnglish ? "" : ""}`}>
                 <div className="icons flex items-center gap-1 md:gap-3">
                     <img src={youtube} alt="youtube" />
