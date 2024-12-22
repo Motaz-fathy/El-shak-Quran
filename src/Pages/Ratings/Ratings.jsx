@@ -1,6 +1,6 @@
 
 import EgazatSection from '../../Components/Egazat/EgazatSection'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -73,14 +73,14 @@ const Ratings = () => {
     return (
         <div>
 
-            <nav className="p-6 m-10 bg-[--main-bgLight-color] h-[159px] top-[301px]">
+            {/* <nav className="p-6 m-10 bg-[--main-bgLight-color] h-[159px] top-[301px]">
                 <div className="flex gap-[24px] items-center justify-center h-[100px] top-[330px] left-[91] ">
                 <Link to='/login' className="p-[12px 22px 12px 22px] rounded-[15px] w-[309px] h-[100px] bg-white active:bg-[--main-dark-color] active:text-white active:ring-[--main-border-color] justify-center items-center flex ">تسجيل الدخول</Link>
                 <Link to='/About' className="p-[12px 22px 12px 22px] rounded-[15px] w-[309px] h-[100px] bg-white active:bg-[--main-dark-color] active:text-white active:ring-[--main-border-color] justify-center items-center flex ">من نحن</Link>
                 <Link to='/Joinus' className="p-[12px 22px 12px 22px] rounded-[15px] w-[309px] h-[100px] bg-white active:bg-[--main-dark-color] active:text-white active:ring-[--main-border-color] justify-center items-center flex ">انضم الينا كمعلم</Link>
                 <Link to='/Ratings' className="p-[12px 22px 12px 22px] rounded-[15px] w-[309px] h-[100px] bg-white active:bg-[--main-dark-color] active:text-white active:ring-[--main-border-color] justify-center items-center flex ">التقييمات</Link>
                 </div>
-            </nav>
+            </nav> */}
 
             <div className='comments my-10'>
                 <h4 className="globalMain-header text-[26px] md:text-[34px] font-[700]">اكتب تعليقك هنا</h4>

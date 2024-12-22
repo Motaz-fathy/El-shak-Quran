@@ -16,14 +16,49 @@ import Container_3 from "../../assets/images/courses/Container_3.png";
 import Container_4 from "../../assets/images/courses/Container_4.png";
 import pepole from "../../assets/images/general/people.png";
 import sheikh from "../../assets/images/courses/sheikh.jpg";
-import { Rating } from "@mui/material";
 import { useLocation } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Courses = () => {
+
+  //  for coures Datails :-
   const location = useLocation();
   const course = location.state;
 
-  console.log("course", course);
+  const [teachers, setTeachers] = useState([]);   
+  const [questions, setQuestions] = useState([]); 
+
+
+  // For Slider of Teacher :-
+  useEffect(() => {
+    const fetchTeachers = async () => {
+      try {
+        const response = await axios.get('https://quran.codecraft1.com/api/teacher');
+        setTeachers(response.data.data); 
+      } catch (err) {
+        alert(err.message)
+      }
+    };
+    fetchTeachers();
+  }, []);
+
+
+  // For Slider of Teacher :-
+  useEffect(() => {
+    const fetchTeachers = async () => {
+      try {
+        const response = await axios.get('https://quran.codecraft1.com/api/dashboard/faqs');
+        setQuestions(response.data.data); 
+      } catch (err) {
+        alert(err.message)
+      }
+    };
+    fetchTeachers();
+  }, []);
+
+
+
 
   const fiveBox = [
     {
@@ -187,115 +222,12 @@ const Courses = () => {
     { text: "فصول تجريبية مجانية", pargraph: "مصطفي ياسر حمدي" }
   ];
 
-  const dataQuestion = [
-    {
-      question: "ما الذي يميز معلمي القرآن الخاصين عن غيرهم؟",
-      ansswer: "مصطفي سار حمدي"
-    },
-    {
-      question: "هل سيستوعب معلمو القرآن الطلاب من جميع الأعمار والمواقع؟",
-      ansswer: "مصطفي سار حمدي"
-    },
-    {
-      question: "هل سيستوعب معلمو القرآن الطلاب من جميع الأعمار والمواقع؟",
-      ansswer: "مصطفي سار حمدي"
-    },
-    {
-      question: "هل سيستوعب معلمو القرآن الطلاب من جميع الأعمار والمواقع؟",
-      ansswer: "مصطفي سار حمدي"
-    },
-    {
-      question: "هل سيستوعب معلمو القرآن الطلاب من جميع الأعمار والمواقع؟",
-      ansswer: "مصطفي سار حمدي"
-    }
-  ];
 
-  const dataSlider = [
-    {
-      img: pepole,
-      name: "مصطفي ياسر",
-      ex: 4,
-      rate: 2,
-      course: "القرآن واللغة العربية والدراسات الإسلامية",
-      des:
-        "مدرسون ذوو خبرة في القرآن واللغة العربية والدراسات الإسلامية ، معظمهم من   خريجو الأزهر مع الإجازات ، متخصصون في التجويد والقرآن استذكار"
-    },
-    {
-      img: pepole,
-      name: "عبد الرحمن",
-      ex: 4,
-      rate: 2,
-      course: "القرآن واللغة العربية والدراسات الإسلامية",
-      des:
-        "مدرسون ذوو خبرة في القرآن واللغة العربية والدراسات الإسلامية ، معظمهم من   خريجو الأزهر مع الإجازات ، متخصصون في التجويد والقرآن استذكار"
-    },
-    {
-      img: pepole,
-      name: "مصطفي ياسر",
-      ex: 4,
-      rate: 2,
-      course: "القرآن واللغة العربية والدراسات الإسلامية",
-      des:
-        "مدرسون ذوو خبرة في القرآن واللغة العربية والدراسات الإسلامية ، معظمهم من   خريجو الأزهر مع الإجازات ، متخصصون في التجويد والقرآن استذكار"
-    },
-    {
-      img: pepole,
-      name: "مصطفي ياسر",
-      ex: 4,
-      rate: 2,
-      course: "القرآن واللغة العربية والدراسات الإسلامية",
-      des:
-        "مدرسون ذوو خبرة في القرآن واللغة العربية والدراسات الإسلامية ، معظمهم من   خريجو الأزهر مع الإجازات ، متخصصون في التجويد والقرآن استذكار"
-    },
-    {
-      img: pepole,
-      name: "مصطفي ياسر",
-      ex: 4,
-      rate: 2,
-      course: "القرآن واللغة العربية والدراسات الإسلامية",
-      des:
-        "مدرسون ذوو خبرة في القرآن واللغة العربية والدراسات الإسلامية ، معظمهم من   خريجو الأزهر مع الإجازات ، متخصصون في التجويد والقرآن استذكار"
-    },
-    {
-      img: pepole,
-      name: "عبد الرحمن",
-      ex: 4,
-      rate: 2,
-      course: "القرآن واللغة العربية والدراسات الإسلامية",
-      des:
-        "مدرسون ذوو خبرة في القرآن واللغة العربية والدراسات الإسلامية ، معظمهم من   خريجو الأزهر مع الإجازات ، متخصصون في التجويد والقرآن استذكار"
-    },
-    {
-      img: pepole,
-      name: "احمد",
-      ex: 4,
-      rate: 2,
-      course: "القرآن واللغة العربية والدراسات الإسلامية",
-      des:
-        "مدرسون ذوو خبرة في القرآن واللغة العربية والدراسات الإسلامية ، معظمهم من   خريجو الأزهر مع الإجازات ، متخصصون في التجويد والقرآن استذكار"
-    },
-    {
-      img: pepole,
-      name: "عمر",
-      ex: 4,
-      rate: 2,
-      course: "القرآن واللغة العربية والدراسات الإسلامية",
-      des:
-        "مدرسون ذوو خبرة في القرآن واللغة العربية والدراسات الإسلامية ، معظمهم من   خريجو الأزهر مع الإجازات ، متخصصون في التجويد والقرآن استذكار"
-    },
-    {
-      img: pepole,
-      name: "جمال",
-      ex: 4,
-      rate: 2,
-      course: "القرآن واللغة العربية والدراسات الإسلامية",
-      des:
-        "مدرسون ذوو خبرة في القرآن واللغة العربية والدراسات الإسلامية ، معظمهم من   خريجو الأزهر مع الإجازات ، متخصصون في التجويد والقرآن استذكار"
-    }
-  ];
+
 
   return (
     <div className="my-10 ">
+  
       {/* ------------------------------------------------------------------------------------------------------------------------------------ */}
       <div className="hero flex justify-around relative">
         <div className="text pr-10 md:pr-0 ">
@@ -342,6 +274,7 @@ const Courses = () => {
         </p>
       </div>
 
+
       <div className="fiveBox bg-[--main-bgLight-color] p-3 lg:p-10 flex flex-wrap items-center justify-center">
         {fiveBox.map((item, index) =>
           <div
@@ -364,6 +297,7 @@ const Courses = () => {
           </div>
         )}
       </div>
+
 
       <div className="manhag my-10 lg:my-20 mb-10 lg:mb-20 ">
         <div className="manhagTitle mb-10">
@@ -457,6 +391,7 @@ const Courses = () => {
         </div>
       </div>
 
+
       <div className="levels bg-[--main-bgLight-color] p-5 lg:p-20">
         <h4 className="globalMain-header text-[26px] lg:text-[36px] text-center">
           مستويات تعلم الدروس عبر الانترنت{" "}
@@ -478,7 +413,9 @@ const Courses = () => {
         </div>
       </div>
 
+
       <CoursesPage />
+
 
       <div className="mb-4">
         {/* <h4 className="globalMain-header sm:text-sm md:text-[30px] mb-8 text-center"> */}
@@ -488,7 +425,7 @@ const Courses = () => {
             المعلمون المصريون المعتمدون
           </h4>
           <div className="slider flex overflow-x-scroll gap-3 flex-row-reverse  scrollbar-hide">
-            {dataSlider.map((item, index) =>
+            {teachers.map((teacher, index) =>
               <div
                 key={index}
                 className="box p-3 min-w-[300px] bg-[--main-bgLight-color] rounded-lg mb-10 shadow-lg"
@@ -496,29 +433,27 @@ const Courses = () => {
                 <div className="info flex items-center gap-3">
                   <img
                     className="w-[80px] h-[80px] rounded-[50%]"
-                    src={item.img}
-                    alt=""
+                    src={`https://quran.codecraft1.com/storage/${teacher.image}`}  
+                    alt= {teacher.name}
                   />
                   <div className="text">
                     <h6 className="text-[18px] font-[500]">
-                      الشيخ / {item.name}
+                      الشيخ / {teacher.name}
                     </h6>
                     <p className="text-[14px] text-[#62B6B7]">
-                      {item.ex} سنين من الخبرة
+                      {`${teacher.experience}  من الخبرة  `} 
                     </p>
-                    <Rating name="read-only" value={item.rate} readOnly />
+                    {/* <Rating name="read-only" value={teacher.rate} readOnly /> */}
                   </div>
                 </div>
                 <div className="details">
                   <p className="my-4 text-[14px]">
                     <span className="text-[16px] font-[600]">كورس / </span>
-                    {item.course}
+                    {teacher.title}
                   </p>
                   <p className="text-[14px] ">
-                    <span className="text-[16px] font-[600]">
-                      تفاصيل عن المدرس /{" "}
-                    </span>
-                    {item.des}
+                    <span className="text-[16px] font-[600]">تفاصيل عن المدرس / </span>
+                      {teacher.description}
                   </p>
                 </div>
               </div>
@@ -554,7 +489,7 @@ const Courses = () => {
         </div>
 
         <div>
-          <h4 className="globalMain-header text-[30px] mb-2">
+          <h4 className="globalMain-header text-[30px] mb-10">
             ما هي الميزات التي تجعل الدورة الخاصة بنا مميزة
           </h4>
           <div className=" flex flex-wrap lg:flex-nowrap items-end justify-center gap-16 md:gap-[130px] ">
@@ -594,7 +529,7 @@ const Courses = () => {
 
         {/* ///////////////////// */}
 
-        <div className="p-5 md:p-10">
+        <div className="p-5 md:p-10 my-5 md:my-10">
           <h4 className="globalMain-header sm:text-sm md:text-[30px] mb-12 text-center">
             ما هي الميزات التي تجعل دورتنا التعليمية مميزة
           </h4>
@@ -679,18 +614,19 @@ const Courses = () => {
             أهم الأسئلة الشائعة؟
           </h4>
           <div className="question rounded-md ">
-            {dataQuestion.map((item, index) =>
+            {questions.map((item, index) =>
               <details key={index}>
                 <summary className="w-[400px] p-4   text-[16px] font-[400] shadow-lg cursor-pointer bg-[--main-bgLight-color]  border-b-[1px] border-b-[--main-green-color]">
                   {item.question}
                 </summary>
                 <p className="bg-[--main-bgLight-color] rounded-md p-5  mb-3">
-                  {item.ansswer}
+                  {item.answer}
                 </p>
               </details>
             )}
           </div>
         </div>
+
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import facebook from "../../assets/images/iconHeader/facebook.png";
 import whatsap from "../../assets/images/iconHeader/whatsap.png";
 import youtube from "../../assets/images/iconHeader/youtube.png";
@@ -21,7 +21,7 @@ const Header = () => {
     const { changeLanguage, isEnglish } = useLocalizationContext();
     const content = useLocalization("header");
     const { isAuth } = useAuth()
-
+console.log(isAuth)
     const toggleMenu = () => {
         setIsMenuOpen(prevState => !prevState);
     };
