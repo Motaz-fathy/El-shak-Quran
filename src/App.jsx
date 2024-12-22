@@ -45,7 +45,7 @@ import VoicePage from "./Components/Itsvoice/VoicePage";
 import ContactPage from "./Pages/contact/ContactPage";
 import { ProtectedRoute, PublicRoute } from "./Components/ProtectedRoute/ProtectedRoute";
 import NotFound from "./Pages/NotFound/NotFound";
-import CartStoreProvider from "./Context/CartContext/CartContext";
+import CartStoreProvider from "./Context/CartContext.API";
 
 function App() {
   return (
