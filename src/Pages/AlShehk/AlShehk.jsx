@@ -17,18 +17,18 @@ const AlShehk = () => {
      // State For Search input
     const [searchText, setSearchText] = useState('');
 
-    // Teacher List 
-    const [teachers, setTeachers] = useState([]);
-
     // navigate to Profile Teacher Page
     const navigate = useNavigate()
 
+    const [teachers, setTeachers] = useState([]);
+    const [questions, setQuestions] = useState([]); 
+
+    //  Teacher Slider
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get('https://quran.codecraft1.com/api/teacher');
-                setTeachers(response.data.data.data);
-                console.log(response.data.data.data);
+                setTeachers(response.data.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -43,6 +43,22 @@ const AlShehk = () => {
 
 
 
+    // Questions  :-
+    useEffect(() => {
+        const fetchTeachers = async () => {
+            try {
+                const response = await axios.get('https://quran.codecraft1.com/api/dashboard/faqs');
+                setQuestions(response.data.data); 
+            } catch (err) {
+                alert(err.message)
+            }
+        };
+        fetchTeachers();
+    }, []);
+
+
+
+
 
     const dataWhy = [ 
         {text : "مدربين تدريبا جيدا" , pargraph : "مصطفي ياسر حمدي"} ,
@@ -54,13 +70,13 @@ const AlShehk = () => {
     ]
 
 
-    const dataQuestion = [
-        { question : "ما الذي يميز معلمي القرآن الخاصين عن غيرهم؟" , ansswer : "مصطفي سار حمدي" },
-        { question : "هل سيستوعب معلمو القرآن الطلاب من جميع الأعمار والمواقع؟" , ansswer : "مصطفي سار حمدي" },
-        { question : "هل سيستوعب معلمو القرآن الطلاب من جميع الأعمار والمواقع؟" , ansswer : "مصطفي سار حمدي" },
-        { question : "هل سيستوعب معلمو القرآن الطلاب من جميع الأعمار والمواقع؟" , ansswer : "مصطفي سار حمدي" },
-        { question : "هل سيستوعب معلمو القرآن الطلاب من جميع الأعمار والمواقع؟" , ansswer : "مصطفي سار حمدي" },
-    ]
+    // const dataQuestion = [
+    //     { question : "ما الذي يميز معلمي القرآن الخاصين عن غيرهم؟" , ansswer : "مصطفي سار حمدي" },
+    //     { question : "هل سيستوعب معلمو القرآن الطلاب من جميع الأعمار والمواقع؟" , ansswer : "مصطفي سار حمدي" },
+    //     { question : "هل سيستوعب معلمو القرآن الطلاب من جميع الأعمار والمواقع؟" , ansswer : "مصطفي سار حمدي" },
+    //     { question : "هل سيستوعب معلمو القرآن الطلاب من جميع الأعمار والمواقع؟" , ansswer : "مصطفي سار حمدي" },
+    //     { question : "هل سيستوعب معلمو القرآن الطلاب من جميع الأعمار والمواقع؟" , ansswer : "مصطفي سار حمدي" },
+    // ]
 
 
 
@@ -176,10 +192,10 @@ const AlShehk = () => {
             <div className="repeatQuestion flex items-center flex-col md:flex-row gap-3 md:gap-0 justify-around mt-8 md:mt-20 mb-10">
                 <h4 className="text-[28px] md:text-[32px]   font-[700] text-[--main-green-color] border-b-2 border-[--main-border-color] "> الأسئلة المتكررة؟</h4>
                 <div className="question rounded-md ">
-                    { dataQuestion.map((item , index) =>(
+                    { questions.map((item , index) =>(
                         <details key={index}>
                             <summary className="w-[400px] p-4   text-[16px] font-[400] shadow-lg cursor-pointer bg-[--main-bgLight-color]  border-b-[1px] border-b-[--main-green-color]">{item.question}</summary>
-                            <p className="bg-[--main-bgLight-color] rounded-md p-5  mb-3">{item.ansswer}</p>
+                            <p className="bg-[--main-bgLight-color] rounded-md p-5  mb-3">{item.answer}</p>
                         </details>
                     )) }
                 </div>

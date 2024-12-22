@@ -8,11 +8,12 @@ export const Store = createContext()
 // eslint-disable-next-line react/prop-types
 const StoreProvider = ({ children }) => {
   // ___________________  Wish List  ________________________________________________________________________________________________________________________________________
-  // get wishlist Itme from localStorage or initialize it as an empty array
-  const [wishlistitem, setWishListItem] = useState(() => {
-    const savedWishlist = localStorage.getItem('wishlist');
-    return savedWishlist ? JSON.parse(savedWishlist) : [];
-  });
+    // get wishlist Itme from localStorage or initialize it as an empty array
+    const [wishlistitem, setWishListItem] = useState(() => {
+      const savedWishlist = localStorage.getItem('wishlist');
+      return savedWishlist ? JSON.parse(savedWishlist) : [];
+    });
+  
 
   // Add Item to Wishlist
   const addToWishlist = (item) => {
@@ -45,8 +46,7 @@ const StoreProvider = ({ children }) => {
 
 
   //__________________   Shopping Cart   _________________________________________________________________________________________________________________________________________
-
-  //  intainal State to  ShoppingCart :-
+  
   const [cartItem, setCartItem] = useState(() => {
     const savedCart = localStorage.getItem('cart');
     return savedCart ? JSON.parse(savedCart) : [];
@@ -76,9 +76,8 @@ const StoreProvider = ({ children }) => {
   };
 
 
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cartItem));
-  }, [cartItem]);
+
+
 
 
   //__________________   ViewBook   _________________________________________________________________________________________________________________________________________
