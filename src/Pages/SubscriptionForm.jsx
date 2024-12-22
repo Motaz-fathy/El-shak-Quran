@@ -3,11 +3,14 @@ import axios from "axios";
 // import PayPal from "../assets/images/general/PayPal.png";
 import { useContext } from 'react';
 import { CartStore } from "../Context/CartContext.API";
+import { authContext } from "../Context/authContext/authContext";
 
 
 const SubscriptionForm = () => {
 
     const { addToCart , cartItem} = useContext(CartStore);   
+    const { token } = useContext(authContext); // الحصول على التوكين من AuthProvider
+
 
     const [plans, setPlans] = useState([]);
     const [selectedCheckbox, setSelectedCheckbox] = useState(null);
@@ -24,6 +27,8 @@ const SubscriptionForm = () => {
         accept_terms: null,
     });
     const [courses, setCourses] = useState([]); 
+    console.log(plans);
+
     useEffect(() => {
         const fetchCourses = async () => {
             try {
@@ -126,59 +131,144 @@ const SubscriptionForm = () => {
     };
 
 
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+
+    //     try {
+    //         const response = await axios.post(
+    //             "https://quran.codecraft1.com/api/subscriptions2",
+    //             JSON.stringify(formData),
+    //             {
+    //                 headers: {
+    //                     "Content-Type": "application/json",
+    //                     Authorization: `Bearer ${token}`,
+    //                 },
+    //             }
+    //         );
+
+    //         if (response.data.status === "success") {
+    //             // console.log("Data submitted successfully");
+    //         } else {
+    //             console.error("Failed to submit data");
+    //         }
+    //     } catch (error) {
+    //         if (error.response) {
+    //             // console.error("Response error:", error.response.data);
+    //             alert(`خطأ: ${error.response.data.message || "تعذر إرسال البيانات."}`);
+    //         } else if (error.request) {
+    //             console.error("No response received:", error.request);
+    //             alert("تعذر الاتصال بالخادم.");
+    //         } else {
+    //             // console.error("Error setting up request:", error.message);
+    //             alert("حدث خطأ غير متوقع.");
+    //         }
+    //     }
+    // };
+
+
+
+
+    // ---------------------------------------------------------------
+    
+    
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         try {
+            // افتراض أن formData و token معرفين ومحتوياتهما صحيحة
             const response = await axios.post(
                 "https://quran.codecraft1.com/api/subscriptions2",
-                JSON.stringify(formData),
+                formData, // إرسال كائن البيانات مباشرة
                 {
                     headers: {
                         "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`, // تأكد أن التوكن صحيح
                     },
                 }
             );
-
+    
+            console.log(response);
+            
             if (response.status === 201) {
-                // console.log("Data submitted successfully");
+                console.log("تم إرسال البيانات بنجاح:");
+                alert("تم إرسال البيانات بنجاح!");
             } else {
-                console.error("Failed to submit data");
+                console.error("فشل إرسال البيانات:", response.data);
+                alert("فشل إرسال البيانات. تحقق من المدخلات.");
             }
         } catch (error) {
             if (error.response) {
-                // console.error("Response error:", error.response.data);
+                console.error("خطأ في الاستجابة:", error.response.data);
                 alert(`خطأ: ${error.response.data.message || "تعذر إرسال البيانات."}`);
             } else if (error.request) {
-                console.error("No response received:", error.request);
+                console.error("لم يتم تلقي استجابة من الخادم:", error.request);
                 alert("تعذر الاتصال بالخادم.");
             } else {
-                // console.error("Error setting up request:", error.message);
+                console.error("خطأ أثناء إعداد الطلب:", error.message);
                 alert("حدث خطأ غير متوقع.");
             }
         }
     };
-
-
-
-    const handleAddToCart = () => {
-        const selectedCourse = courses.find(course => course.name === formData.course);
-
-
-        const isAlreadyInCart = cartItem.some(item => item.name === selectedCourse.name);
-        if (isAlreadyInCart) {
-            alert("هذا الكورس موجود بالفعل");
-            return; 
-        }
     
-        if (selectedCourse) {
+    // ---------------------------------------------------------------
+
+
+
+    // ------------------------------------------------------------
+   const handleAddToCart = async () => {
+    const selectedCourse = courses.find(course => course.name === formData.course);
+    
+    if (!selectedCourse) {
+        alert("يرجى اختيار دورة تعليمية.");
+        return;
+    }
+    
+    const isAlreadyInCart = cartItem.some(item => item.name === selectedCourse.name);
+    if (isAlreadyInCart) {
+        alert("هذا الكورس موجود بالفعل");
+        return;
+    }
+    
+    if (!formData.plan) {
+        alert("يرجى اختيار الخطة.");
+        return;
+    }
+    
+    const selectedPlan = plans.find(plan => plan.session_duration === formData.plan); 
+    
+    if (!selectedPlan) {
+        alert("الخطة المختارة غير صالحة.");
+        return;
+    }
+
+    const payload = {
+        course_id: selectedCourse.id,
+        plan_id: selectedPlan.id, // تأكد من استخدام id الصحيح للخطة
+    };
+    
+    try {
+        const response = await axios.post(
+            "https://quran.codecraft1.com/api/carts",
+            payload,
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`, 
+                },
+            }
+        );
+    
+        if (response.data) {
             const item = {
-                id: selectedCourse.id,   
-                name: selectedCourse.name, 
-                image: selectedCourse.image, 
+                id: selectedCourse.id,
+                name: selectedCourse.name,
+                image: selectedCourse.image,
                 price: formData.price || 100,
             };
+    
             addToCart(item);
+            alert("تم إضافة الكورس بنجاح");
             setFormData({
                 course: "",
                 plan: "",
@@ -191,9 +281,59 @@ const SubscriptionForm = () => {
                 accept_terms: null,
             });
             setSelectedCheckbox(null);
-            alert("تم إضافة الكورس بنجاح");
         }
-    };
+    } catch (error) {
+        if (error.response) {
+            alert(`خطأ: ${error.response.data.message || "تعذر إرسال البيانات."}`);
+        } else {
+            alert("تعذر الاتصال بالخادم.");
+        }
+    }
+};
+    // ------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+    // const handleAddToCart = () => {
+    //     const selectedCourse = courses.find(course => course.name === formData.course);
+
+
+    //     const isAlreadyInCart = cartItem.some(item => item.name === selectedCourse.name);
+    //     if (isAlreadyInCart) {
+    //         alert("هذا الكورس موجود بالفعل");
+    //         return; 
+    //     }
+    
+    //     if (selectedCourse) {
+    //         const item = {
+    //             id: selectedCourse.id,   
+    //             name: selectedCourse.name, 
+    //             image: selectedCourse.image, 
+    //             price: formData.price || 100,
+    //         };
+    //         addToCart(item);
+    //         setFormData({
+    //             course: "",
+    //             plan: "",
+    //             subscription_plan: "",
+    //             name: "",
+    //             email: "",
+    //             phone: "",
+    //             country: "",
+    //             payment_method: "",
+    //             accept_terms: null,
+    //         });
+    //         setSelectedCheckbox(null);
+    //         alert("تم إضافة الكورس بنجاح");
+    //     }
+    // };
     
 
 
