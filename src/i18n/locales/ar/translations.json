@@ -62,5 +62,34 @@
       "english": "إنجليزي",
       "arabic": "عربي"
     }
+  },
+  "auth": {
+    "signup": {
+      "login_free": "سجل الدخول مجانا",
+      "email_placeholder": "البريد الإلكتروني",
+      "name_placeholder": "الاسم بالكامل",
+      "password_placeholder": "كلمة المرور",
+      "agree_to_terms": "اوافق على سياسه وشروط الخدمة",
+      "already_have_account": "هل لديك حساب بالفعل؟",
+      "btn": "عمل حساب"
+    },
+
+    "socialLogin": {
+      "login_with_facebook": "تسجيل الدخول عبر فيسبوك",
+      "login_with_twitter": "تسجيل الدخول عبر تويتر",
+      "login_with_google": "تسجيل الدخول عبر جوجل",
+      "social_login_prompt": "يرجى تسجيل الدخول من خلال وسائل التواصل الاجتماعي للوصول السريع"
+    },
+    "error": {
+      "unexpected_error": "حدث خطأ غير متوقع. يرجى المحاولة لاحقًا.",
+      "processing_error": "حدث خطأ أثناء معالجة الطلب. حاول مرة أخرى.",
+      "success_message": "تم التسجيل بنجاح."
+    },
+    "aboutLinks": {
+      "login": "تسجيل الدخول",
+      "about_us": "من نحن",
+      "join_us_as_teacher": "انضم الينا كمعلم",
+      "ratings": "التقييمات"
+    }
   }
 }

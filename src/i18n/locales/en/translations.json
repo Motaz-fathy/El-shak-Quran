@@ -62,5 +62,38 @@
       "english": "English",
       "arabic": "Arabic"
     }
+  },
+
+  "auth": {
+    "signup": {
+      "signup" : "signup" ,
+      "login_free": "Sign Up for Free",
+      "email_placeholder": "Email Address",
+      "name_placeholder": "Full Name",
+      "password_placeholder": "Password",
+      "agree_to_terms": "I agree to the Terms and Conditions",
+      "already_have_account": "Already have an account?",
+      "btn": "Register"
+    },
+
+    "socialLogin": {
+      "login_with_facebook": "Login with Facebook",
+      "login_with_twitter": "Login with Twitter",
+      "login_with_google": "Login with Google",
+      "social_login_prompt": "Please log in through social media for quick access"
+    },
+
+    "error": {
+      "unexpected_error": "An unexpected error occurred. Please try again later.",
+      "processing_error": "An error occurred while processing the request. Please try again.",
+      "success_message": "Registration successful."
+    },
+
+    "aboutLinks": {
+      "login": "Login",
+      "about_us": "About Us",
+      "join_us_as_teacher": "Join Us as a Teacher",
+      "ratings": "Ratings"
+    }
   }
 }
