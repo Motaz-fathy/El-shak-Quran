@@ -66,7 +66,7 @@
 
   "auth": {
     "signup": {
-      "signup" : "signup" ,
+      "signup": "signup",
       "login_free": "Sign Up for Free",
       "email_placeholder": "Email Address",
       "name_placeholder": "Full Name",
@@ -76,6 +76,16 @@
       "btn": "Register"
     },
 
+    "login": {
+      "title": "Log in to your account",
+      "noAccount": "Don't have an account? Sign up for free",
+      "emailPlaceholder": "Email Address",
+      "passwordPlaceholder": "Password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot your password?",
+      "loginButton": "Log in"
+    },
+    
     "socialLogin": {
       "login_with_facebook": "Login with Facebook",
       "login_with_twitter": "Login with Twitter",

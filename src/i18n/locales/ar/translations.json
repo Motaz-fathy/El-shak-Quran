@@ -74,6 +74,16 @@
       "btn": "عمل حساب"
     },
 
+    "login": {
+      "title": "تسجيل الدخول إلى حسابك",
+      "noAccount": "ليس لديك حساب ؟ قم بتسجيل الدخول مجانا",
+      "emailPlaceholder": "البريد الإلكتروني",
+      "passwordPlaceholder": "كلمة المرور",
+      "rememberMe": "تذكرني",
+      "forgotPassword": "هل نسيت كلمه المرور؟",
+      "loginButton": "تسجيل الدخول"
+    },
+    
     "socialLogin": {
       "login_with_facebook": "تسجيل الدخول عبر فيسبوك",
       "login_with_twitter": "تسجيل الدخول عبر تويتر",
