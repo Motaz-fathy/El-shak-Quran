@@ -4,11 +4,19 @@ import { faSearch, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./visible.css";
+import useFav from "../../hooks/useFav";
 
 const Visible = () => {
+  const { addToFav, AlertContainer } = useFav()
   const [recitations, setRecitations] = useState([]); // Store the fetched recitations
   const [selectedVideo, setSelectedVideo] = useState(null); // Store the selected video
 
+  const HandelAddToFav = async (id) => {
+    await addToFav({
+      item_type: "App\\Models\\Recitation",
+      item_id: id
+    })
+  }
   // Fetch the recitations data when the component mounts
   useEffect(() => {
     fetch("https://quran.codecraft1.com/api/recitations")
@@ -92,6 +100,7 @@ const Visible = () => {
                   <FontAwesomeIcon
                     className="text-[--main-light-color] absolute top-10 left-10"
                     icon={faHeart}
+                    onClick={() => HandelAddToFav(recitation.id)}
                   />
                 </div>
               </SwiperSlide>
@@ -114,6 +123,7 @@ const Visible = () => {
           </div>
         ))}
       </div>
+      <AlertContainer />
     </div>
   );
 };

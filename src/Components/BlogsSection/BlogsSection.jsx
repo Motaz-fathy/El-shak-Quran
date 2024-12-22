@@ -38,7 +38,7 @@ const BlogsSection = () => {
                 >
                     <img
                         className="w-[50%]"
-                        src={`https://quran.codecraft1.com/public/${item?.image}`}
+                        src={`${item?.image}`}
                         alt=""
                     />
                     <h5 className="font-[500] text-[28px] text-[--main-dark-color] py-7">{item?.title}</h5>

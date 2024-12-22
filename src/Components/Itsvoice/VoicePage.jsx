@@ -9,8 +9,10 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import useFav from "../../hooks/useFav";
 
 const VoicePage = () => {
+  const { addToFav, AlertContainer } = useFav()
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [surahs, setSurahs] = useState([]);
@@ -18,6 +20,12 @@ const VoicePage = () => {
   const [error, setError] = useState(null);
   const [currentSurah, setCurrentSurah] = useState(null); // Track the current Surah
 
+  const HandelAddToFav = async (id) => {
+    await addToFav({
+      item_type: "App\\Models\\Audio",
+      item_id: id
+    })
+  }
   useEffect(() => {
     const fetchSurahs = async () => {
       try {
@@ -129,12 +137,13 @@ const VoicePage = () => {
                 </button>
               </div>
 
-              <button className="mt-2 absolute top-1 left-3">
+              <button className="mt-2 absolute top-1 left-3" onClick={() => HandelAddToFav(surah.id)}>
                 <FontAwesomeIcon className="text-[--main-light-color]" icon={faHeart} />
               </button>
             </div>
           ))}
       </div>
+      <AlertContainer />
     </div>
   );
 };
