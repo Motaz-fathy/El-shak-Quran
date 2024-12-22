@@ -21,7 +21,7 @@ const Header = () => {
     const { changeLanguage, isEnglish } = useLocalizationContext();
     const content = useLocalization("header");
     const { isAuth } = useAuth()
-
+console.log(isAuth)
     const toggleMenu = () => {
         setIsMenuOpen(prevState => !prevState);
     };

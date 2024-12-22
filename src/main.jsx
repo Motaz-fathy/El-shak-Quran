@@ -6,14 +6,17 @@ import "./i18n/config.js"
 import App from './App.jsx'
 import StoreProvider from './Context/Context.jsx'
 import LocalizationsProvider from './Context/localizationContext/LocalizationsProvider.jsx'
+import AuthProvider from './Context/authContext/authProvider';
 
 createRoot(document.getElementById('root')).render(
   <LocalizationsProvider>
-    <StoreProvider>
-      <StrictMode>
-        <App />
-      </StrictMode>,
-    </StoreProvider>
+    <AuthProvider>
+      <StoreProvider>
+        <StrictMode>
+          <App />
+        </StrictMode>,
+      </StoreProvider>
+    </AuthProvider>
   </LocalizationsProvider>
 
 )
