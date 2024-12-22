@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import like from "../../assets/images/general/wishList.png";
+// import like from "../../assets/images/general/wishList.png";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -77,7 +77,7 @@ const Blogs = () => {
           >
             <img
               className=""
-              src={`https://quran.codecraft1.com/public/${blog.image}`}
+              src={`${blog.image}`}
               alt={blog.title}
             />
             <h4 className="text-[30px] text-[white]">{blog.title}</h4>
@@ -90,11 +90,11 @@ const Blogs = () => {
             >
               قراءة المزيد
             </button>
-            <img
+            {/* <img
               className="absolute top-[1px] lg:top-[10px] left-[1px] lg:left-[10px] w-[40px] cursor-pointer"
               src={like}
               alt=""
-            />
+            /> */}
           </div>
         ))}
       </div>
@@ -108,7 +108,7 @@ const Blogs = () => {
           >
             <img
               className=""
-              src={`https://quran.codecraft1.com/public/${blog.image}`}
+              src={`${blog.image}`}
               alt={blog.title}
             />
             <h4 className="text-[30px]">{blog.title}</h4>
@@ -121,11 +121,11 @@ const Blogs = () => {
             >
               قراءة المزيد
             </button>
-            <img
+            {/* <img
               className="absolute top-[10px] left-[10px] w-[40px] cursor-pointer"
               src={like}
               alt=""
-            />
+            /> */}
           </div>
         ))}
       </div>
