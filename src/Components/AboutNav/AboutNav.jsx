@@ -6,7 +6,7 @@ const AboutNav = () => {
     const { isEnglish } = useLocalizationContext()
     const content = useLocalization("auth")
     
-    return <nav className="p-2 m-3 bg-[--main-bgLight-color] ">
+    return <nav className="p-2 m-3 bg-[--main-bgLight-color] mb-5">
         <div className={`flex gap-6 items-center justify-center flex-wrap ${isEnglish && "flex-row-reverse"}`}>
             <Link
                 to="/login"

@@ -106,7 +106,7 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
 // import * as Yup from "yup"
 import axios from "axios";
-import logo from "../../assets/images/iconHeader/logo.png";
+// import logo from "../../assets/images/iconHeader/logo.png";
 import design3 from "../../assets/images/general/design3.png";
 import design1 from "../../assets/images/general/design1.png";
 import { toast, ToastContainer } from "react-toastify";
@@ -184,7 +184,7 @@ export default function ArabicLoginTailwind() {
     }, []);
 
     return (
-        <div dir="rtl" className="min-h-screen relative font-sans overflow-hidden">
+        <div dir="rtl" className="my-10 relative font-sans overflow-hidden">
             {/* Navigation */}
             <AboutNav />
 

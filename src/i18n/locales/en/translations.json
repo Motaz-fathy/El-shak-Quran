@@ -85,7 +85,7 @@
       "forgotPassword": "Forgot your password?",
       "loginButton": "Log in"
     },
-    
+
     "socialLogin": {
       "login_with_facebook": "Login with Facebook",
       "login_with_twitter": "Login with Twitter",
@@ -104,6 +104,15 @@
       "about_us": "About Us",
       "join_us_as_teacher": "Join Us as a Teacher",
       "ratings": "Ratings"
+    },
+    
+    "passwordRecovery": {
+      "title": "Recover Your Password",
+      "description": "Fill in your email address below, and we will send you an email with further instructions.",
+      "emailPlaceholder": "Email Address",
+      "recoverButton": "Recover Password",
+      "alreadyHaveAccount": "Already have an account?",
+      "noAccount": "Don't have an account?"
     }
   }
 }

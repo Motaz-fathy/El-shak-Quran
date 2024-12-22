@@ -83,7 +83,7 @@
       "forgotPassword": "هل نسيت كلمه المرور؟",
       "loginButton": "تسجيل الدخول"
     },
-    
+
     "socialLogin": {
       "login_with_facebook": "تسجيل الدخول عبر فيسبوك",
       "login_with_twitter": "تسجيل الدخول عبر تويتر",
@@ -100,6 +100,15 @@
       "about_us": "من نحن",
       "join_us_as_teacher": "انضم الينا كمعلم",
       "ratings": "التقييمات"
+    },
+    
+    "passwordRecovery": {
+      "title": "أستعادة كلمة المرور الخاصه بك",
+      "description": "ملأ عنوان بريدك الإلكتروني أدناه وسنرسل لك بريدا إلكترونيا يحتوي على مزيد من التعليمات.",
+      "emailPlaceholder": "البريد الإلكتروني",
+      "recoverButton": "أستعادة كلمة المرور",
+      "alreadyHaveAccount": "هل لديك حساب بالفعل ؟",
+      "noAccount": "ليس لدي حساب ؟"
     }
   }
 }
