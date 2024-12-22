@@ -1,7 +1,5 @@
 import shoppingCart from '../../assets/images/general/shoppingCart.png'
-// import cartImg from '../../assets/images/general/cartImg.png'
 import { useContext } from 'react'
-// import { Store } from '../../Context/Context'
 import EasySteps from '../../Components/EasySteps/EasySteps'
 import { useNavigate } from 'react-router-dom'
 import { CartStore } from '../../Context/CartContext.API'
