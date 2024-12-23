@@ -1,12 +1,12 @@
 import './wishList.css'
 import wishList from '../../assets/images/general/wishList.png'
-import courseImg from '../../assets/images/general/cartImg.png'
+// import courseImg from '../../assets/images/general/cartImg.png'
 import like from '../../assets/images/general/Vector.png'
-import play from '../../assets/images/general/play.png'
+// import play from '../../assets/images/general/play.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { useRef, useState } from 'react';
-import { Rating } from '@mui/material'
+// import { Rating } from '@mui/material'
 import axios from 'axios'
 import useAuth from '../../Context/authContext/authContext'
 import { useEffect } from 'react'
