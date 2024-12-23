@@ -72,6 +72,7 @@ a{
   position: relative;
   width: fit-content;
   margin: 0 auto;
+  padding-bottom: 10px;
 }
 .globalMain-header::after {
   content: "";

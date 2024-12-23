@@ -28,17 +28,17 @@ const BlogsSection = () => {
     return (
         <div className='blogsSection my-[80px]'>
             <h4 className='globalMain-header mb-[40px] text-[40px]'>المدونات</h4>
-            <div className="bigBox flex justify-center gap-[50px]">
+            <div className="bigBox flex justify-center gap-[50px] gapy-y-5  flex-col md:flex-row">
             {Array.isArray(blogs) && blogs.slice(0, 2).map((item, index) => (
                 <div
-                    className={`box w-[35%] bg-[--main-bgLight-color] flex items-center flex-col p-10 rounded-[15px] shadow-[5px 5px 15px 3px red] ${
+                    className={`box w-[100%] md:w-[35%]  bg-[--main-bgLight-color] flex items-center flex-col p-10 rounded-[15px] shadow-[5px 5px 15px 3px red] ${
                         index === 0 ? "translate-y-[60px]" : ""
                     }`}
                     key={index}
                 >
                     <img
-                        className="w-[50%]"
-                        src={`https://quran.codecraft1.com/public/${item?.image}`}
+                        className="w-[90%] rounded-lg"
+                        src={`${item?.image}`}
                         alt=""
                     />
                     <h5 className="font-[500] text-[28px] text-[--main-dark-color] py-7">{item?.title}</h5>

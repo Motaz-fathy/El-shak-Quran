@@ -12,8 +12,8 @@ const StartLearn = () => {
 
     return (
         <div className="start mb-10">
-            <h4 className="globalMain-header mb-[30px] text-[40px] ">ابدأ التعلم فى خطوات بسيطة</h4>
-            <div className="bigBox flex gap-10 justify-center items-center">
+            <h4 className="globalMain-header text-[28px] lg:text-[40px]  ">ابدأ التعلم فى خطوات بسيطة</h4>
+            <div className="bigBox flex gap-10 justify-center items-center mt-[50px] md:mt-[20px]">
                 <div className="box ">
                     <div className="imag bg-[#E4F7F1] w-[130px] h-[130px] flex items-center justify-center rounded-[50%] relative">
                         <img src={one} alt="" />
