@@ -63,22 +63,22 @@ function App() {
             <Route path="/contact" element={<PublicRoute><ContactPage /></PublicRoute>} />
 
             {/* Protected Routes */}
-            <Route 
-              path="/shoppingCart" 
+            <Route
+              path="/shoppingCart"
               element={
                 <CartStoreProvider>
                   <ProtectedRoute>
-                  <ShoppingCart />
+                    <ShoppingCart />
                   </ProtectedRoute>
                 </CartStoreProvider>
-              } 
+              }
             />
-            <Route 
-              path="/subsriptionform" 
+            <Route
+              path="/subsriptionform"
               element={
                 <CartStoreProvider>
                   <ProtectedRoute>
-                  <SubscriptionForm />
+                    <SubscriptionForm />
                   </ProtectedRoute>
                 </CartStoreProvider>
               }
@@ -112,8 +112,8 @@ function App() {
             <Route path="/qurancourse" element={<ProtectedRoute><Courses /></ProtectedRoute>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <Footer />
         </Router>
-        <Footer />
         <a href="#">
           <img
             className="w-[50px] h-[50px] rounded-[50%] cursor-pointer fixed bottom-2 right-2 md:bottom-5 md:right-5"
