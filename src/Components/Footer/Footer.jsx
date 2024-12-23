@@ -11,42 +11,52 @@ import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelopeOpen } from "@fortawesome/free-regular-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import useLocalization from "../../hooks/useTranslation";
+import useLocalizationContext from "../../Context/localizationContext/localizationContext";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const { isEnglish } = useLocalizationContext()
+  const content = useLocalization("footer")
+
+  const quickLinks = [
+    { label: content("quick_links.items.0"), path: '/' },
+    { label: content("quick_links.items.1"), path: '/commonQuestions' },
+    { label: content("quick_links.items.2"), path: '/coursesPage' },
+    { label: content("quick_links.items.3"), path: '/pricingpage' },
+    { label: content("quick_links.items.4"), path: '/library' },
+  ];
+
   return (
     <footer className="py-5">
+
+      {/* Top */}
       <div className="footer" style={{ backgroundColor: "#7CB98E" }}>
-
-        <div className="flex flex-col md:flex-row items-center gap-2">
-
-          <div className="">
+        <div className="flex flex-col md:flex-row items-center gap-2 justify-around">
+          <div>
             <img
               className="w-[100px]"
               src={logo}
               alt="logo"
             />
           </div>
-
-          <h3 className="text-center text-[16px] md:text-[18px]">
-            هو موقع لتعلم القراءات العشرة والحصول على شهادات وإجازات معتمدة من
-            معلمين خبراء فى العلوم القرآنية
+          <h3 className="text-center text-[16px] md:text-[18px] max-w-[90%]">
+            {content("general.description")}
           </h3>
-
         </div>
-
       </div>
 
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 text-start md:text-right">
         {/* القسم الأول: وسائل التواصل */}
         <div>
-          <h3 className="text-lg font-bold mb-4">دورات مهمة</h3>
+          <h3 className="text-lg font-bold mb-4"> {content("courses.title")} </h3>
           <ul className="space-y-1">
             <li>
               <FontAwesomeIcon
                 className="socia-icone ml-2"
                 icon={faArrowLeft}
               />
-              قراءة نافع
+              {content("courses.items.0")}
             </li>
             <li>
               <FontAwesomeIcon
@@ -80,72 +90,39 @@ const Footer = () => {
         </div>
 
         {/* القسم الثاني: روابط مرجعية */}
-        <div>
-          <h3 className="text-lg font-bold mb-4">روابط سريعة</h3>
+        <div dir={isEnglish && "rtl"}>
+          <h3 className="text-lg font-bold mb-4"> {content("quick_links.title")}</h3>
           <ul className="space-y-1">
-            <li>
-              <FontAwesomeIcon
-                className="socia-icone ml-2"
-                icon={faArrowLeft}
-              />
-              الرئيسية
-            </li>
-            <li>
-              <FontAwesomeIcon
-                className="socia-icone ml-2"
-                icon={faArrowLeft}
-              />
-              الإجازات
-            </li>
-            <li>
-              <FontAwesomeIcon
-                className="socia-icone ml-2"
-                icon={faArrowLeft}
-              />
-              الكورسات
-            </li>
-            <li>
-              <FontAwesomeIcon
-                className="socia-icone ml-2"
-                icon={faArrowLeft}
-              />
-              الأسعار
-            </li>
-            <li>
-              <FontAwesomeIcon
-                className="socia-icone ml-2"
-                icon={faArrowLeft}
-              />
-              المكتبة
-            </li>
+            {quickLinks.map((link, index) => (
+              <li key={index}>
+                <FontAwesomeIcon className="socia-icone ml-2" icon={faArrowLeft} />
+                <Link to={link.path}>{link.label}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 
         {/* القسم الثالث: اتصل بنا */}
-        <div>
-          <h3 className="text-lg font-bold mb-4">اتصل بنا</h3>
+        <div dir={isEnglish && "rtl"}>
+          <h3 className="text-lg font-bold mb-4"> {content("contact_us.title")} </h3>
           <ul className="space-y-1">
             <li className="flex items-center justify-start md:justify-start gap-2">
-              <FontAwesomeIcon className="socia-icone" icon={faPhone} />
-              الهاتف
-            </li>
-            <li className="flex items-center justify-start md:justify-start gap-2">
               <FontAwesomeIcon className="socia-icone" icon={faWhatsapp} />
-              الواتساب
+              {content("contact_us.items.1")}
             </li>
             <li className="flex items-center justify-start md:justify-start gap-2">
               <FontAwesomeIcon className="socia-icone" icon={faEnvelopeOpen} />
-              البريد الإلكتروني
+              {content("contact_us.items.2")}
             </li>
             <li className="flex items-center justify-start md:justify-start gap-2">
               <FontAwesomeIcon className="socia-icone" icon={faLocationDot} />
-              الموقع
+              {content("contact_us.items.3")}
             </li>
           </ul>
         </div>
 
         {/* أيقونات السوشيال ميديا */}
-        <div className="mt-8 flex items-end justify-start gap-4">
+        <div className="mt-8 flex items-end justify-evenly">
           <a href="#" className="text-green-500 text-2xl">
             <img src={whats} alt="whats" />
           </a>

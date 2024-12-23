@@ -78,7 +78,7 @@ export default function ArabicLoginTailwind() {
             <AboutNav />
 
             {/* Main Content */}
-            <FormLayout onSubmit={formik.handleSubmit} title={content("signup.signup")}>
+            <FormLayout onSubmit={formik.handleSubmit} title={content("signup.login_free")}>
                 <div>
                     <input
                         type="email"
