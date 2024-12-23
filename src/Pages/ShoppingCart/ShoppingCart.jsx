@@ -28,7 +28,7 @@ const ShoppingCart = () => {
                 const formattedCartItems = allItems.map(item => ({
                     id: item.id,
                     name: item.course.name,
-                    image: `${item.course.image}`,
+                    image: `https://quran.codecraft1.com/public/${item.course.image}`,
                     price: item.plan.price,
                 }));
 
