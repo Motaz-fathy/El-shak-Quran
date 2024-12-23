@@ -118,11 +118,9 @@ import { useState, useEffect } from "react";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const Books = () => {
 
-  const navigate = useNavigate();
 
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
