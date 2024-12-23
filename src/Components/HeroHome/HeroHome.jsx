@@ -133,28 +133,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 import sliderImg from "../../assets/images/home/heroImg.png";
-import border from "../../assets/images/home/lastBorder1.png";
+// import border from "../../assets/images/home/lastBorder1.png";
 import stekar from '../../assets/images/home/stekar.png'
 import useLocalizationContext from "../../Context/localizationContext/localizationContext";
 // import "./heroHome.css";
@@ -181,7 +163,6 @@ const HeroHome = () => {
       try {
         const response = await axios.get("https://quran.codecraft1.com/api/novel");
         setData(response.data);
-        console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -204,13 +185,13 @@ const HeroHome = () => {
 
             <div className="title relative">
               <h1 className="text-[28px] lg:text-[40px] font-[700] text-[--main-dark-color]">{item.read_name}</h1>
-              <img className="borderImg min-w-[150px] lg:min-w-[230px] absolute top-[-60%] left-[-35%] lg:left-[-35%] lg:top-[-60%]" src={border} alt="Border" />
+              {/* <img className="borderImg min-w-[150px] lg:min-w-[230px] absolute top-[-60%] left-[-35%] lg:left-[-35%] lg:top-[-60%]" src={border} alt="Border" /> */}
             </div>
 
 
             <div className="content flex justify-between w-[100%] px-2 md:px-20">
 
-              <div className="twoBox w-[60%] relative">
+              <div className="twoBox w-[100%] lg:w-[60%] relative">
                 <div className="subBox one  text-[white] w-[400px] md:w-[600px] lg:w-[300px] flex items-center gap-2 flex-col">
                   <h5 className="bg-[--main-green-color] w-[fit-content]  px-3 border-2 border-[--main-border-color] rounded-lg">{item.novels[0]?.name || "اسم الرواية غير متاح"}</h5>
                   <div className="list p-5 bg-[--main-green-color] w-[fit-content]  px-3 border-2 border-[--main-border-color] rounded-lg flex items-center flex-col gap-2">
