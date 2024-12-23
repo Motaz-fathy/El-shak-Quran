@@ -105,7 +105,7 @@
       "join_us_as_teacher": "Join Us as a Teacher",
       "ratings": "Ratings"
     },
-    
+
     "passwordRecovery": {
       "title": "Recover Your Password",
       "description": "Fill in your email address below, and we will send you an email with further instructions.",
@@ -114,5 +114,82 @@
       "alreadyHaveAccount": "Already have an account?",
       "noAccount": "Don't have an account?"
     }
+  },
+
+  "global_recognition": [
+    {
+      "title": "Recognized Worldwide",
+      "text": "Trusted by thousands of families in more than one country around the world"
+    },
+    {
+      "title": "Recognized Worldwide",
+      "text": "Trusted by thousands of families in more than one country around the world"
+    },
+    {
+      "title": "Recognized Worldwide",
+      "text": "Trusted by thousands of families in more than one country around the world"
+    },
+    {
+      "title": "Recognized Worldwide",
+      "text": "Trusted by thousands of families in more than one country around the world"
+    },
+    {
+      "title": "Recognized Worldwide",
+      "text": "Trusted by thousands of families in more than one country around the world"
+    },
+    {
+      "title": "Recognized Worldwide",
+      "text": "Trusted by thousands of families in more than one country around the world"
+    },
+    "Why Us"
+  ],
+
+  "learning": {
+    "startLearning": "Start Learning in Simple Steps",
+    "step1": "Register and Book a Lesson",
+    "step2": "Register and Book a Lesson",
+    "step3": "Register and Book a Lesson"
+  },
+
+  "easyStep": {
+    "stepsHeader": "Easy Steps to Get Started!",
+    "step1Text": "Enter your details",
+    "step2Text": "Book your free trial session",
+    "step3Text": "Choose your study plan"
+  },
+
+  "trialSession": {
+    "evaluationSessionsHeader": "(.......) offers free evaluation sessions",
+    "evaluationSessionsDescription": "Please fill out the form below to schedule your free trial session",
+    "dataPrivacyNote": "Your data will never be shared with any third parties",
+    "formLabels": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "WhatsApp Number",
+      "country": "Country",
+      "city": "City",
+      "theCycle": "Course",
+      "favoriteDays": "Favorite Days",
+      "favoriteTimes": "Favorite Times",
+      "age": "Age",
+      "studentGender": "Student Gender:",
+      "teacherGender": "Teacher Gender:",
+      "message": "Your Message"
+    },
+    "genders": {
+      "male": "Male",
+      "female": "Female"
+    },
+    "submitButton": "Get Your Free Trial"
+  },
+  
+  "plane": {
+    "chooseYourPlan": "Choose Your Study Plan",
+    "highQualityLowFees": "High quality and low fees",
+    "discountUpTo20": "Discount up to 20%",
+    "hourlyRate": "$8 instead of $10 per hour",
+    "monthlyRate": "Starting at $40 per month",
+    "allPricingPlans": "All Pricing Plans"
   }
 }
