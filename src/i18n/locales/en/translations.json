@@ -66,7 +66,6 @@
 
   "auth": {
     "signup": {
-      "signup": "signup",
       "login_free": "Sign Up for Free",
       "email_placeholder": "Email Address",
       "name_placeholder": "Full Name",
@@ -304,6 +303,41 @@
       "whatsapp": "WhatsApp Number:",
       "message": "Message:",
       "submitButton": "Submit"
+    }
+  },
+
+  "footer": {
+    "courses": {
+      "title": "Important Courses",
+      "items": [
+        "Reading of Nafi",
+        "Reading of Ibn Kathir",
+        "Reading of Abu Amr al-Basri",
+        "Reading of Ibn Amer",
+        "Reading of Asim"
+      ]
+    },
+    "quick_links": {
+      "title": "Quick Links",
+      "items": ["Home", "Common Questions", "Courses", "Prices", "Library"]
+    },
+    "contact_us": {
+      "title": "Contact Us",
+      "items": ["Phone", "Whatsapp", "Email", "Location"]
+    },
+    "social_media": {
+      "whatsapp": "Whatsapp",
+      "facebook": "Facebook",
+      "youtube": "YouTube"
+    },
+    "copyright": {
+      "text": "Copyright",
+      "year": "2024",
+      "company": "Codec Craft",
+      "all_rights_reserved": "All rights reserved"
+    },
+    "general": {
+      "description": "This is a website to learn the ten Quranic readings and obtain certified licenses and qualifications from expert teachers in Quranic sciences."
     }
   }
 }
