@@ -183,7 +183,7 @@
     },
     "submitButton": "Get Your Free Trial"
   },
-  
+
   "plane": {
     "chooseYourPlan": "Choose Your Study Plan",
     "highQualityLowFees": "High quality and low fees",
@@ -191,5 +191,37 @@
     "hourlyRate": "$8 instead of $10 per hour",
     "monthlyRate": "Starting at $40 per month",
     "allPricingPlans": "All Pricing Plans"
+  },
+
+  "blog": {
+    "featured_articles": "Featured Articles",
+    "search_placeholder": "Type the reading name",
+    "read_more": "Read More"
+  },
+
+  "alshehk": {
+    "hero_heading": "(..........) website for Quran, Arabic, and Islamic lessons online",
+    "hero_points": [
+      "Native Egyptian Arab",
+      "Certified Ijazah",
+      "Al-Azhar University Graduate",
+      "Qualified and Experienced",
+      "Fluent in English"
+    ],
+    "hero_button": "Start a Free Trial",
+    "teachers_heading": "Qualified Egyptian Quran Teachers",
+    "teachers_paragraph": "Our Quran teachers, male and female, are well-trained to teach students of all ages and levels and to help non-native speakers read and memorize the Quran properly with Tajweed rules. They provide full support to assist students in a simple and easy way. All our teachers have certificates in Quran recitation and memorization, Arabic language, and Islamic studies. Teachers are role models for students to help them learn. Therefore, we prefer selecting certified, qualified, and experienced teachers in online teaching.",
+    "teachers_search_placeholder": "Type the teacher's name",
+    "why_choose_heading": "Why choose Quran teachers on ....?",
+    "faq_heading": "Frequently Asked Questions",
+    "viewBtn": "View teacher profile",
+    "why_choose_points": [
+      "Well-trained instructors",
+      "Use of advanced teaching tools",
+      "Advanced teaching methods",
+      "Certified Ijazah",
+      "Diploma holders",
+      "Strict teacher hiring process"
+    ]
   }
 }
