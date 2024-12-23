@@ -23,7 +23,7 @@ const Amr = () => {
             try {
                 const response = await axios.get('https://quran.codecraft1.com/api/videos');
                 setVedio(response.data);
-                console.log(response.data);
+
 
             } catch (error) {
                 console.error('Error fetching data:', error);

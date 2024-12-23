@@ -229,6 +229,70 @@
     "faq_title": "Frequently Asked Questions",
     "faq_subtitle": "Below are some common questions about the Quran, Arabic, and Islamic studies online.",
     "general_questions_title": "General Questions"
+  },
+
+  "price": {
+    "title": "Pricing",
+    "rightSection": {
+      "altText": "Pricing",
+      "description": [
+        "Monthly fees are charged on a monthly basis in US dollars.",
+        "Fees are charged upfront with a full money-back guarantee.",
+        "If you want a custom plan, we will arrange it, God willing.",
+        "Payments are made via bank account, PayPal, or debit/credit card."
+      ]
+    }
+  },
+
+  "currencyConverter": {
+    "maintitle": "Currency Converter",
+    "description": "If you are not paying in US Dollars, you can use the following currency converter to calculate the pricing in your currency.",
+    "title": "Currency Converter",
+    "amount": {
+      "label": "Amount",
+      "placeholder": "Enter amount"
+    },
+    "fromCurrency": {
+      "label": "From",
+      "options": {
+        "USD": "United States Dollar",
+        "EUR": "Euro",
+        "GBP": "British Pound"
+      }
+    },
+    "toCurrency": {
+      "label": "To",
+      "options": {
+        "EGP": "Egyptian Pound",
+        "USD": "United States Dollar",
+        "GBP": "British Pound"
+      }
+    },
+    "convertButton": "Convert",
+    "result": {
+      "label": "Result",
+      "formattedResult": "Converted amount"
+    }
+  },
+
+  "plans": {
+    "page_title": "Pricing Plan Categories",
+    "tabs": {
+      "lesson": "Lesson",
+      "minutes": "Minutes"
+    },
+    "pricing_cards": {
+      "loading": "Loading...",
+      "lesson_per_week": " Day/Week",
+      "monthly": "Monthly",
+      "lesson_count": "4 Lessons/Month",
+      "subscribe_button": "Subscribe",
+      "trial_lesson_button": "Trial Lesson"
+    },
+    "payment_methods": {
+      "paypal": "PayPal",
+      "mastercard": "MasterCard"
+    },
+    "view_all_plans_button": "View All Pricing Plans"
   }
-  
 }
