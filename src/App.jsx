@@ -93,8 +93,11 @@ function App() {
             <Route path="/egazat" element={<ProtectedRoute><EgazatPage /></ProtectedRoute>} />
             <Route path="/itsLibrary" element={<ProtectedRoute><ItsLibrary /></ProtectedRoute>} />
             <Route path="/read" element={<ProtectedRoute><ReadPage /></ProtectedRoute>} />
-            <Route path="/books" element={<ProtectedRoute><Books /></ProtectedRoute>} />
-            <Route path="/viewBook" element={<ProtectedRoute><ViewBook /></ProtectedRoute>} />
+            {/* <Route path="/books" element={<ProtectedRoute><Books /></ProtectedRoute>} /> */}
+            {/* --------------------------------- */}
+            <Route path="/itsLibrary" element={<ProtectedRoute><Books /></ProtectedRoute>} />
+            <Route path="/itsLibrary/:id" element={<ProtectedRoute><ViewBook /></ProtectedRoute>} />
+            {/* --------------------------------- */}
             <Route path="/visible" element={<ProtectedRoute><Visible /></ProtectedRoute>} />
             <Route path="/Voice" element={<ProtectedRoute><VoicePage /></ProtectedRoute>} />
             <Route path="/egazat/:id" element={<ProtectedRoute><EgazatDetailsPage /></ProtectedRoute>} />
