@@ -6,22 +6,23 @@ import person from '../../assets/images/home/person.png'
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import useLocalizationContext from '../../Context/localizationContext/localizationContext'
 
 
 const Amr = () => {
-
+    const { isEnglish } = useLocalizationContext()
     const navigate = useNavigate()
 
     // Teacher List 
     const [vedio, setVedio] = useState([]);
 
 
-//     // Fetch data from API
+    //     // Fetch data from API
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get('https://quran.codecraft1.com/api/videos');
-                setVedio(response.data);                
+setVedio(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -40,9 +41,9 @@ const Amr = () => {
                     <h4 className='name  text-[40px] font-[700] my-10'>الشيخ/ عمرو البدرى</h4>
                     <p className="text-[24px] font-[700] mb-10">درس رواية حفص عن عاصم</p>
                     <div className="groupButton  flex items-center gap-10">
-                        <button 
+                        <button
                             className="globalButton bg-[--main-bgLight-color] px-3 text-[black] text-[20px] font-[700]"
-                            onClick={()=>navigate('/pricingpage')}
+                            onClick={() => navigate('/pricingpage')}
                         >احجز الان</button>
                         <button className="globalButton bg-[--main-bgLight-color] px-3 text-[black] text-[20px] font-[700]">شاهد الفيديو المجانى</button>
                     </div>
