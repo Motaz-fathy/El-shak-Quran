@@ -16,11 +16,7 @@ import Container_3 from "../../assets/images/courses/Container_3.png";
 import Container_4 from "../../assets/images/courses/Container_4.png";
 import pepole from "../../assets/images/general/people.png";
 import sheikh from "../../assets/images/courses/sheikh.jpg";
-<<<<<<< HEAD
-import { useLocation, useNavigate } from "react-router-dom";
-=======
-import { useLocation, useParams } from "react-router-dom";
->>>>>>> 2751d43c6f68315e7876d2f49cc7bc7ca85fbc14
+import { useLocation, useParams , useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import useFav from "../../hooks/useFav";
@@ -40,15 +36,10 @@ const Courses = () => {
   const location = useLocation();
   const course = location.state;
 
-<<<<<<< HEAD
   const navigate = useNavigate()
 
-  const [teachers, setTeachers] = useState([]);   
   const [questions, setQuestions] = useState([]); 
-=======
   const [teachers, setTeachers] = useState([]);
-  const [questions, setQuestions] = useState([]);
->>>>>>> 2751d43c6f68315e7876d2f49cc7bc7ca85fbc14
 
 
   // For Slider of Teacher :-
@@ -251,12 +242,9 @@ const Courses = () => {
 
       {/* ------------------------------------------------------------------------------------------------------------------------------------ */}
       <div className="hero flex justify-around relative">
-<<<<<<< HEAD
         <div className="text ">
-=======
         <div className="text pr-10 md:pr-0 ">
           <img src={like} alt="add To Wishlist" className="block ms-auto p-3 cursor-pointer" onClick={() => handelAddToFav(name)} />
->>>>>>> 2751d43c6f68315e7876d2f49cc7bc7ca85fbc14
           <p className="text-[20px] font-[700] text-center md:text-start pl-3 md:pl-20">
             {course.description}
           </p>
@@ -298,7 +286,7 @@ const Courses = () => {
         <p className="w-[100%] lg:w-[70%]  text-center text-[14px] lg:text-[20px] font-[600] ">
           لقد صممنا دروس التجويد هذه لتعليم الأطفال والأخوات والكبار تعلم
           القواعد الأساسية لتلاوة القرآن بشكل صحيح. يضمن نهجنا التدريجي والبيئة
-          الجذابة للطلاب من جميع المستويات تعلم القراءة مع دورة التجويد لتطوير
+          الجذابة للطلاب من جميع المستويات,تعلم القراءة مع دورة التجويد لتطوير
           مهارات التلاوة الدقيقة.
         </p>
       </div>
@@ -456,13 +444,8 @@ const Courses = () => {
                 <div className="info flex items-center gap-3">
                   <img
                     className="w-[80px] h-[80px] rounded-[50%]"
-<<<<<<< HEAD
-                    src={`${teacher.image}`}  
-                    alt= {teacher.name}
-=======
-                    src={`https://quran.codecraft1.com/storage/${teacher.image}`}
+
                     alt={teacher.name}
->>>>>>> 2751d43c6f68315e7876d2f49cc7bc7ca85fbc14
                   />
                   <div className="text">
                     <h6 className="text-[18px] font-[500]">
@@ -494,11 +477,11 @@ const Courses = () => {
                 تعلم الطلاب النطق الصحيح والتنغيم لتلاوة القرآن الصحيحة وحفظه.
               </li>
               <li className="font-[700] text-[#111] text-[16px]">
-                حصل كل مدرس على إجازة من جامعة الأزهر, المؤسسة الإسلامية الرائدة
+                حصل كل مدرس على إجازة من جامعة الأزهر, المؤسسة الإسلامية الرائدة
                 ، مما يشهد على حفزه وخبرته في التدريس.
               </li>
               <li className="font-[700] text-[#111] text-[16px]">
-                مع سنوات من الخبرة في توجيه الطلاب نحو برنامج تحفيظ القرآن
+                مع سنوات من الخبرة في توجيه الطلاب نحو برنامج تحفيظ القرآن
                 الناجح ، فإن مدرسي حافظ لدينا هم معلمو حافظ القرآن المعتمدون من
                 الخبراء.
               </li>
@@ -555,7 +538,6 @@ const Courses = () => {
           </div>
         </div>
 
-        {/* ///////////////////// */}
 
         <div className="p-5 md:p-10 my-5 md:my-10">
           <h4 className="globalMain-header sm:text-sm md:text-[30px] mb-12 text-center">
@@ -657,6 +639,7 @@ const Courses = () => {
 
       </div>
       <AlertContainer />
+    </div>
     </div>
   );
 };

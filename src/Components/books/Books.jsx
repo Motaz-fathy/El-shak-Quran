@@ -128,7 +128,6 @@ const Books = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // console.log(books);
   
 
   useEffect(() => {
@@ -179,7 +178,7 @@ const Books = () => {
             <div
               key={book.id || index}
               className="flex flex-col w-[300px] md:-w-[400px] cursor-pointer pt-16 pb-2 px-5 border-[5px] border-[--main-green-color] rounded-tl-[200px] rounded-tr-[200px] gap-5 bg-[--secound-bg-color] items-center justify-center"
-              onClick={() => navigate(`/itsLibrary/${book.id}`)}
+              onClick={() => navigate(`/itsLibrary/${book.id}`, { state: { book } })}
             >
               <img
                 src={img}
