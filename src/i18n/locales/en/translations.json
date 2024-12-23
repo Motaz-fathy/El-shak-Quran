@@ -223,5 +223,12 @@
       "Diploma holders",
       "Strict teacher hiring process"
     ]
+  },
+
+  "faq": {
+    "faq_title": "Frequently Asked Questions",
+    "faq_subtitle": "Below are some common questions about the Quran, Arabic, and Islamic studies online.",
+    "general_questions_title": "General Questions"
   }
+  
 }
