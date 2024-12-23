@@ -294,5 +294,16 @@
       "mastercard": "MasterCard"
     },
     "view_all_plans_button": "View All Pricing Plans"
+  },
+
+  "contact": {
+    "header": "We are committed to offering a wide range of lessons to meet the needs of students from beginner to advanced levels. Our online lessons focus on science-based technologies, tools, and the latest methods to improve learning for both adults and children. We are happy to hear from you, send us a message, and we will respond as soon as possible.",
+    "form": {
+      "name": "Name:",
+      "email": "Email:",
+      "whatsapp": "WhatsApp Number:",
+      "message": "Message:",
+      "submitButton": "Submit"
+    }
   }
 }
