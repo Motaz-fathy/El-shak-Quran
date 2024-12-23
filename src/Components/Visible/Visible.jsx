@@ -10,7 +10,7 @@ const Visible = () => {
   const { addToFav, AlertContainer } = useFav()
   const [recitations, setRecitations] = useState([]); // Store the fetched recitations
   const [selectedVideo, setSelectedVideo] = useState(null); // Store the selected video
-
+  console.log("recitations" , recitations[0]?.video)
   const HandelAddToFav = async (id) => {
     await addToFav({
       item_type: "App\\Models\\Recitation",
@@ -57,7 +57,7 @@ const Visible = () => {
         </h3>
         <video
           className="min-w-[320px] min-h-[50vh] border-[2px] border-[--main-green-color] rounded-md"
-          src={selectedVideo ? selectedVideo.videoUrl : ""}
+          src={recitations[0]?.video}
           controls
         ></video>
 
