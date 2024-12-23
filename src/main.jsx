@@ -8,6 +8,7 @@ import StoreProvider from './Context/Context.jsx'
 import LocalizationsProvider from './Context/localizationContext/LocalizationsProvider.jsx'
 import AuthProvider from './Context/authContext/authProvider';
 
+
 createRoot(document.getElementById('root')).render(
   <LocalizationsProvider>
     <AuthProvider>

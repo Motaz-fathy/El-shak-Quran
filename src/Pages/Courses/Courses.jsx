@@ -16,7 +16,7 @@ import Container_3 from "../../assets/images/courses/Container_3.png";
 import Container_4 from "../../assets/images/courses/Container_4.png";
 import pepole from "../../assets/images/general/people.png";
 import sheikh from "../../assets/images/courses/sheikh.jpg";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -25,6 +25,8 @@ const Courses = () => {
   //  for coures Datails :-
   const location = useLocation();
   const course = location.state;
+
+  const navigate = useNavigate()
 
   const [teachers, setTeachers] = useState([]);   
   const [questions, setQuestions] = useState([]); 
@@ -230,7 +232,7 @@ const Courses = () => {
   
       {/* ------------------------------------------------------------------------------------------------------------------------------------ */}
       <div className="hero flex justify-around relative">
-        <div className="text pr-10 md:pr-0 ">
+        <div className="text ">
           <p className="text-[20px] font-[700] text-center md:text-start pl-3 md:pl-20">
             {course.description}
           </p>
@@ -256,17 +258,20 @@ const Courses = () => {
           <img className="w-[100%] rounded-lg " src={course.image} />
         </div>
 
-        <button className="globalButton absolute bottom-[-30px] md:bottom-0  left-[37%] md:left-[50%]">
+        <button 
+          className="globalButton absolute bottom-[-30px] md:bottom-0  left-[35%] md:left-[50%]"
+          onClick={()=> navigate('/trialSession')}
+        >
           ابدأ تجربة مجانية
         </button>
       </div>
       {/* ------------------------------------------------------------------------------------------------------------------------------------ */}
 
       <div className="whatLearn  text-center my-14 lg:my-20  flex items-center justify-center flex-col ">
-        <h4 className="text-[24px] md:text-[30px] font-[700] text-[--main-green-color]">
+        <h4 className="text-[20px] md:text-[30px] font-[700] text-[--main-green-color] pb-3">
           ماذا ستتعلم في دروس التجويد عبر الإنترنت؟
         </h4>
-        <p className="w-[100%] lg:w-[70%]  text-center text-[16px] lg:text-[20px] font-[600] ">
+        <p className="w-[100%] lg:w-[70%]  text-center text-[14px] lg:text-[20px] font-[600] ">
           لقد صممنا دروس التجويد هذه لتعليم الأطفال والأخوات والكبار تعلم
           القواعد الأساسية لتلاوة القرآن بشكل صحيح. يضمن نهجنا التدريجي والبيئة
           الجذابة للطلاب من جميع المستويات تعلم القراءة مع دورة التجويد لتطوير
@@ -301,18 +306,18 @@ const Courses = () => {
 
       <div className="manhag my-10 lg:my-20 mb-10 lg:mb-20 ">
         <div className="manhagTitle mb-10">
-          <h4 className="globalMain-header text-[24px] md:text-[30px]">
+          <h4 className="globalMain-header text-[22px] md:text-[30px]">
             منهجنا الدراسي لدورة التجويد عبر الإنترنت
           </h4>
-          <p className="text-center mt-7 md:mt-10  text-[16px] lg:text-[20px]  font-[700] ">
+          <p className="text-center mt-7 md:mt-10  text-[14px] lg:text-[20px]  font-[700] ">
             تم تصميم مناهجنا لتوجيه الطلاب خطوة بخطوة من خلال إتقان التجويد.
             يعتمد كل مستوى على المستوى السابق ، مما يساعدك على التطور من مبتدئ
             إلى قارئ متقدم.
           </p>
         </div>
 
-        <div className="bigBoxManhag flex justify-center items-center gap-10  flex-col">
-          <div className="top flex items-center justify-between  w-[100%] lg:w-[60%] gap-5">
+        <div className="bigBoxManhag flex justify-center items-center gap-5 sm:gap-10   flex-col">
+          <div className="top flex items-center justify-between flex-col sm:flex-row  w-[100%] lg:w-[60%] gap-5">
             <div className="rounded-lg overflow-hidden cursor-pointer shadow-lg">
               <details className="w-[300px] rounded-lg">
                 <summary className="bg-[--main-bgLight-color]  text-[--main-green-color] p-2 ">
@@ -330,23 +335,20 @@ const Courses = () => {
                   تعلم القراءة باللغة العربية
                 </summary>
                 <p className="bg-[--main-green-color] text-[white] text-[--main-green-color]  p-2">
-                  سيعمل الطلاب المتقدمون على حفظ القرآن الكريم بالكامل من خلال
-                  التسجيل في دورة حفظ مكثفة , باتباع خطة منظمة وشخصية لتحقيق هذا
-                  الهدف النبيل.
+                يبدأ المنهج بتعزيز قدرة الطلاب على قراءة القرآن بطلاقة باللغة العربية ، مما يشكل الأساس للحفظ.
                 </p>
               </details>
             </div>
           </div>
 
-          <div className="center flex items-center justify-between gap-5 w-[100%] lg:w-[80%]">
+          <div className="center flex items-center justify-between flex-col sm:flex-row  gap-5 w-[100%] lg:w-[80%]">
             <div className="rounded-lg overflow-hidden  cursor-pointer shadow-lg">
               <details className="w-[300px] rounded-lg">
                 <summary className="bg-[--main-bgLight-color]  text-[--main-green-color] p-2 ">
-                  تعلم قواعد التجويد
+                  حافظ جزء تبارك  
                 </summary>
                 <p className="bg-[--main-green-color] text-[white] text-[--main-green-color]  p-2">
-                  سيتعلم الطلاب قواعد التجويد ، مما يضمن أن يكون حفظهم دقيقا
-                  وجميلا ويلتزم بالنطق الصحيح لكل حرف.
+                  سينتقل طلاب المرحلة المتوسطة إلى جزء تبارك (الجزء 29) ، لمواصلة رحلة الحفظ مع سور أطول.
                 </p>
               </details>
             </div>
@@ -354,36 +356,33 @@ const Courses = () => {
             <div className="rounded-lg overflow-hidden  cursor-pointer shadow-lg">
               <details className="w-[300px] rounded-lg">
                 <summary className="bg-[--main-bgLight-color]  text-[--main-green-color] p-2 ">
-                  تعلم قواعد التجويد
+                  حافظ جزء عم 
                 </summary>
                 <p className="bg-[--main-green-color] text-[white] text-[--main-green-color]  p-2">
-                  سيتعلم الطلاب قواعد التجويد ، مما يضمن أن يكون حفظهم دقيقا
-                  وجميلا ويلتزم بالنطق الصحيح لكل حرف.
+                  سيبدأ المبتدئين بحفظ جزء عام (الجزء 30) ، والذي يحتوي على سور أقصر ، مما يجعله مثاليا للحفظ التأسيسي.
                 </p>
               </details>
             </div>
           </div>
 
-          <div className="bottom w-[100%] lg:w-[60%] flex items-center justify-between gap-5">
+          <div className="bottom w-[100%] lg:w-[60%] flex items-center justify-between flex-col sm:flex-row  gap-5">
             <div className="rounded-lg overflow-hidden  cursor-pointer shadow-lg">
               <details className="w-[300px] rounded-lg">
                 <summary className="bg-[--main-bgLight-color]  text-[--main-green-color] p-2 ">
-                  تعلم قواعد التجويد
+                  حفظ سور مختارة أو جزء 
                 </summary>
                 <p className="bg-[--main-green-color] text-[white] text-[--main-green-color]  p-2">
-                  سيتعلم الطلاب قواعد التجويد ، مما يضمن أن يكون حفظهم دقيقا
-                  وجميلا ويلتزم بالنطق الصحيح لكل حرف.
+                  بالنسبة للطلاب الذين يفضلون حفظ سور أو أجزاء معينة من القرآن ، فإننا نقدم المرونة في الاختيار بناء على الأهداف الشخصية.
                 </p>
               </details>
             </div>
             <div className="rounded-lg overflow-hidden cursor-pointer shadow-lg">
               <details className="w-[300px] rounded-lg">
                 <summary className="bg-[--main-bgLight-color]  text-[--main-green-color] p-2 ">
-                  تعلم قواعد التجويد
+                  حافظ القرآن الكريم  
                 </summary>
                 <p className="bg-[--main-green-color] text-[white] text-[--main-green-color]  p-2">
-                  سيتعلم الطلاب قواعد التجويد ، مما يضمن أن يكون حفظهم دقيقا
-                  وجميلا ويلتزم بالنطق الصحيح لكل حرف.
+                حافظ القرآن الكريم بالتجويد والقراءات كامل
                 </p>
               </details>
             </div>
@@ -393,7 +392,7 @@ const Courses = () => {
 
 
       <div className="levels bg-[--main-bgLight-color] p-5 lg:p-20">
-        <h4 className="globalMain-header text-[26px] lg:text-[36px] text-center">
+        <h4 className="globalMain-header text-[24px] lg:text-[36px] text-center">
           مستويات تعلم الدروس عبر الانترنت{" "}
         </h4>
         <div className="bigBox flex items-center justify-between flex-col sm:flex-row gap-5 mt-10">
@@ -433,7 +432,7 @@ const Courses = () => {
                 <div className="info flex items-center gap-3">
                   <img
                     className="w-[80px] h-[80px] rounded-[50%]"
-                    src={`https://quran.codecraft1.com/storage/${teacher.image}`}  
+                    src={`${teacher.image}`}  
                     alt= {teacher.name}
                   />
                   <div className="text">
@@ -571,7 +570,7 @@ const Courses = () => {
               باحتفال بتقدمهم في تعلم الدروس القرآنية الرئيسية. يمثل هذا الإنجاز
               خطوة مهمة في رحلتهم لفهم وحفظ القرآن.
             </p>
-            <button className="globalButton"> إحجز نسخة تجريبية الآن </button>
+            <button className="globalButton" onClick={()=> navigate('/trialSession')}> إحجز نسخة تجريبية الآن </button>
           </div>
 
           {/* القسم الأيسر: صورة الشهادة */}
