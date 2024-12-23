@@ -37,7 +37,7 @@ const BlogsSection = () => {
                     key={index}
                 >
                     <img
-                        className="w-[90%] rounded-lg"
+className="w-[90%] rounded-lg"
                         src={`${item?.image}`}
                         alt=""
                     />

@@ -1,13 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import like from "../../assets/images/general/wishList.png";
+// import like from "../../assets/images/general/wishList.png";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import useLocalization from "../../hooks/useTranslation";
 
 const Blogs = () => {
   // State For Search input
   const [searchText, setSearchText] = useState("");
+  const content = useLocalization("blog")
 
   // Blogs List
   const [blogs, setBlogs] = useState([]);
@@ -39,16 +41,16 @@ const Blogs = () => {
   // Function To Search Blogs
   const filteredData = Array.isArray(blogs)
     ? blogs.filter((blog) =>
-        blog.title.toLowerCase().includes(searchText.toLowerCase())
-      )
+      blog.title.toLowerCase().includes(searchText.toLowerCase())
+    )
     : [];
 
   return (
-    <div className="w-full">
+    <div className="w-full" >
       {/* Header Section */}
       <div className="head flex items-center justify-between mb-5 lg:mb-10 mx-2 lg:mx-10 mt-5 lg:mt-20">
         <div className="text-[24px] md:text-[30px] font-[700] text-[--main-dark-color] border-b-2 border-b-[--main-border-color]">
-          مقالات مميزة
+          {content("featured_articles")}
         </div>
         <div className="w-[50%] md:w-[30%] border-2 border-[--main-dark-color] rounded-[10px] overflow-hidden py-2 px-2 md:px-3 flex items-center gap-3">
           <FontAwesomeIcon
@@ -58,7 +60,7 @@ const Blogs = () => {
           <input
             className="w-[90%] bg-[transparent] border-[none] outline-[0]"
             type="text"
-            placeholder="اكتب اسم القراءة"
+            placeholder={content("search_placeholder")}
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
@@ -77,7 +79,7 @@ const Blogs = () => {
           >
             <img
               className=""
-              src={`https://quran.codecraft1.com/public/${blog.image}`}
+              src={`${blog.image}`}
               alt={blog.title}
             />
             <h4 className="text-[30px] text-[white]">{blog.title}</h4>
@@ -88,13 +90,13 @@ const Blogs = () => {
                 navigate(`/blogsdetails/${blog.id}`, { state: blog })
               }
             >
-              قراءة المزيد
+                           {content("read_more")}
             </button>
-            <img
+            {/* <img
               className="absolute top-[1px] lg:top-[10px] left-[1px] lg:left-[10px] w-[40px] cursor-pointer"
               src={like}
               alt=""
-            />
+            /> */}
           </div>
         ))}
       </div>
@@ -108,7 +110,7 @@ const Blogs = () => {
           >
             <img
               className=""
-              src={`https://quran.codecraft1.com/public/${blog.image}`}
+              src={`${blog.image}`}
               alt={blog.title}
             />
             <h4 className="text-[30px]">{blog.title}</h4>
@@ -119,13 +121,13 @@ const Blogs = () => {
                 navigate(`/blogsdetails/${blog.id}`, { state: blog })
               }
             >
-              قراءة المزيد
+             {content("read_more")}
             </button>
-            <img
+            {/* <img
               className="absolute top-[10px] left-[10px] w-[40px] cursor-pointer"
               src={like}
               alt=""
-            />
+            /> */}
           </div>
         ))}
       </div>

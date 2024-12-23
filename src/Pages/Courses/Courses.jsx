@@ -16,20 +16,39 @@ import Container_3 from "../../assets/images/courses/Container_3.png";
 import Container_4 from "../../assets/images/courses/Container_4.png";
 import pepole from "../../assets/images/general/people.png";
 import sheikh from "../../assets/images/courses/sheikh.jpg";
+<<<<<<< HEAD
 import { useLocation, useNavigate } from "react-router-dom";
+=======
+import { useLocation, useParams } from "react-router-dom";
+>>>>>>> 2751d43c6f68315e7876d2f49cc7bc7ca85fbc14
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import useFav from "../../hooks/useFav";
+import like from "../../assets/images/general/wishList.png"
 
 const Courses = () => {
-
+  const { name } = useParams()
+  const { addToFav, AlertContainer } = useFav()
+  const handelAddToFav = async (id) => {
+    await addToFav({
+      "item_type": "App\\Models\\Course",
+      "item_id": id
+    }
+    )
+  }
   //  for coures Datails :-
   const location = useLocation();
   const course = location.state;
 
+<<<<<<< HEAD
   const navigate = useNavigate()
 
   const [teachers, setTeachers] = useState([]);   
   const [questions, setQuestions] = useState([]); 
+=======
+  const [teachers, setTeachers] = useState([]);
+  const [questions, setQuestions] = useState([]);
+>>>>>>> 2751d43c6f68315e7876d2f49cc7bc7ca85fbc14
 
 
   // For Slider of Teacher :-
@@ -37,7 +56,7 @@ const Courses = () => {
     const fetchTeachers = async () => {
       try {
         const response = await axios.get('https://quran.codecraft1.com/api/teacher');
-        setTeachers(response.data.data); 
+        setTeachers(response.data.data);
       } catch (err) {
         alert(err.message)
       }
@@ -51,7 +70,7 @@ const Courses = () => {
     const fetchTeachers = async () => {
       try {
         const response = await axios.get('https://quran.codecraft1.com/api/dashboard/faqs');
-        setQuestions(response.data.data); 
+        setQuestions(response.data.data);
       } catch (err) {
         alert(err.message)
       }
@@ -229,10 +248,15 @@ const Courses = () => {
 
   return (
     <div className="my-10 ">
-  
+
       {/* ------------------------------------------------------------------------------------------------------------------------------------ */}
       <div className="hero flex justify-around relative">
+<<<<<<< HEAD
         <div className="text ">
+=======
+        <div className="text pr-10 md:pr-0 ">
+          <img src={like} alt="add To Wishlist" className="block ms-auto p-3 cursor-pointer" onClick={() => handelAddToFav(name)} />
+>>>>>>> 2751d43c6f68315e7876d2f49cc7bc7ca85fbc14
           <p className="text-[20px] font-[700] text-center md:text-start pl-3 md:pl-20">
             {course.description}
           </p>
@@ -253,7 +277,7 @@ const Courses = () => {
         </div>
 
         {/* that have issue here when load fail image url  */}
-        
+
         <div className="image w-[50%] hidden lg:block">
           <img className="w-[100%] rounded-lg " src={course.image} />
         </div>
@@ -432,15 +456,20 @@ const Courses = () => {
                 <div className="info flex items-center gap-3">
                   <img
                     className="w-[80px] h-[80px] rounded-[50%]"
+<<<<<<< HEAD
                     src={`${teacher.image}`}  
                     alt= {teacher.name}
+=======
+                    src={`https://quran.codecraft1.com/storage/${teacher.image}`}
+                    alt={teacher.name}
+>>>>>>> 2751d43c6f68315e7876d2f49cc7bc7ca85fbc14
                   />
                   <div className="text">
                     <h6 className="text-[18px] font-[500]">
                       الشيخ / {teacher.name}
                     </h6>
                     <p className="text-[14px] text-[#62B6B7]">
-                      {`${teacher.experience}  من الخبرة  `} 
+                      {`${teacher.experience}  من الخبرة  `}
                     </p>
                     {/* <Rating name="read-only" value={teacher.rate} readOnly /> */}
                   </div>
@@ -452,7 +481,7 @@ const Courses = () => {
                   </p>
                   <p className="text-[14px] ">
                     <span className="text-[16px] font-[600]">تفاصيل عن المدرس / </span>
-                      {teacher.description}
+                    {teacher.description}
                   </p>
                 </div>
               </div>
@@ -627,6 +656,7 @@ const Courses = () => {
         </div>
 
       </div>
+      <AlertContainer />
     </div>
   );
 };

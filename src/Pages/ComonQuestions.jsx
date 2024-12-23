@@ -3,8 +3,11 @@ import axios from "axios";
 import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import useLocalization from "../hooks/useTranslation";
 
 const CommonQuestions = () => {
+    const content = useLocalization("faq")
+
     const [questions, setQuestions] = useState([]);
     const [activeIndex, setActiveIndex] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -57,14 +60,13 @@ const CommonQuestions = () => {
                                 className="text-[#CBEDD5] bg-[#0F8A73] rounded-full text-6xl transform scale-x-[-1]"
                             />
                             <h2 className="text-xl sm:text-2xl font-bold mt-2 text-[#0F8A73]">
-                                الأسئلة الشائعة
+                                {content("faq_title")}
                             </h2>
                             <hr className="w-16 border-[#F0AD4E] mt-1" />
                         </div>
                         <div className="text-right text-[#0F8A73] text-base sm:text-lg lg:text-xl flex-1 mr-4">
                             <p>
-                                فيما يلي بعض الأسئلة الشائعة حول القرآن الكريم والدراسات
-                                العربية والإسلامية عبر الإنترنت.
+                                {content("faq_subtitle")}
                             </p>
                         </div>
                     </div>
@@ -72,7 +74,7 @@ const CommonQuestions = () => {
                     {/* Questions Section */}
                     <div className="p-4 bg-gray-50 rounded-lg shadow-md">
                         <h1 className="text-lg sm:text-xl font-bold text-right mb-4 text-[#0F8A73]">
-                            أسئلة عامة
+                            {content("general_questions_title")}
                         </h1>
                         <div className="border border-[#0F8A73] rounded-2xl overflow-hidden">
                             {questions.map((item, index) => (

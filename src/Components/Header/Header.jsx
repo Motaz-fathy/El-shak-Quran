@@ -21,7 +21,6 @@ const Header = () => {
     const { changeLanguage, isEnglish } = useLocalizationContext();
     const content = useLocalization("header");
     const { isAuth } = useAuth()
-console.log(isAuth)
     const toggleMenu = () => {
         setIsMenuOpen(prevState => !prevState);
     };
@@ -31,7 +30,7 @@ console.log(isAuth)
     };
 
     return (
-        <div className="headers relative" >
+        <div className="headers relative px-5 z-[33333333]"  >
             <div className={`topHeader flex items-center gap-2 md:gap-5 justify-end mt-2 md:mt-4 ${isEnglish ? "" : ""}`}>
                 <div className="icons flex items-center gap-1 md:gap-3">
                     <img src={youtube} alt="youtube" />

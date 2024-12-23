@@ -5,16 +5,17 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import design1 from "../assets/images/general/design1.png"
 import design2 from "../assets/images/general/design2.png"
 import EgazatSection from '../Components/Egazat/EgazatSection';
-import disLike from '../assets/images/general/disLike.png';
+// import disLike from '../assets/images/general/disLike.png';
 import { useNavigate } from 'react-router-dom';
 
 
 
 export default function EgazatPage() {
-
+  
     const [searchTerm, setSearchTerm] = useState('');
     const [cardsData, setCardsData] = useState([]);
     const navigate = useNavigate();
+
 
 
     useEffect(() => {
@@ -61,7 +62,7 @@ export default function EgazatPage() {
                     {cardsData
                         .filter((card) => card.read_name.toLowerCase().includes(searchTerm.toLowerCase()))
                         .map((card, index) => (
-                            <div
+                            [<div
                                 key={index}
                                 className="p-6 lg:p-8 rounded-lg shadow-lg border border-green-300 relative"
                                 style={{
@@ -78,7 +79,7 @@ export default function EgazatPage() {
                                             className="globalButton"
                                             onClick={() =>
                                                 navigate(`/egazat/${idx}`, {
-                                                    state: { cardread:card.read_name , buttonName:button.name, description: button.description },
+                                                    state: { cardread: card.read_name, buttonName: button.name, description: button.description },
                                                 })
                                             }
                                             style={{ width: '200px', padding: '10px 0px' }}
@@ -86,15 +87,17 @@ export default function EgazatPage() {
                                             {button.name}
                                         </button>
                                     ))}
-                                    <img className="absolute top-4 left-5 cursor-pointer w-6" src={disLike} alt="" />
+                                    {/* Add To Fav Btn  */}
+                                    {/* <img className="absolute top-4 left-5 cursor-pointer w-6" src={disLike} alt="" onClick={() => HandelAddToFav(card.id)} /> */}
                                 </div>
-                            </div>
+                            </div>]
                         ))}
                 </div>
 
                 {/* Additional Section */}
                 <EgazatSection />
             </div>
+
         </>
     );
 
