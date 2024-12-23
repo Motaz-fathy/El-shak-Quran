@@ -175,10 +175,12 @@ const Books = () => {
         {!loading &&
           !error &&
           books.map((book, index) => (
-            <div
+            <a
               key={book.id || index}
               className="flex flex-col w-[300px] md:-w-[400px] cursor-pointer pt-16 pb-2 px-5 border-[5px] border-[--main-green-color] rounded-tl-[200px] rounded-tr-[200px] gap-5 bg-[--secound-bg-color] items-center justify-center"
-              onClick={() => navigate(`/itsLibrary/${book.id}`, { state: { book } })}
+              href={book.file}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <img
                 src={img}
@@ -197,7 +199,7 @@ const Books = () => {
               >
                 تحميل الكتاب
               </a>
-            </div>
+            </a>
           ))}
       </div>
     </div>
